@@ -24,7 +24,7 @@ public class Experiencia implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_experiencia")
-	private Integer id_experiencia;
+	private Long id_experiencia;
 	
 	@Column(name = "institucion")
 	private String institucion;
