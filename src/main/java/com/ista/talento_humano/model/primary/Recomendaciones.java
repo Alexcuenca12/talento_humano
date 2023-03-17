@@ -18,6 +18,7 @@ public class Recomendaciones implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_recomendaciones")
     private Long id_recomendaciones;
     @Column(name = "primer_nombre")
     private String primer_nombre;

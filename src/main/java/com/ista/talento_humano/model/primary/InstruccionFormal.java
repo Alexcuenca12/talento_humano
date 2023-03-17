@@ -19,6 +19,7 @@ public class InstruccionFormal implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_instruccion")
     private Long id_instruccion;
     @Column(name = "nivel_instruccion")
     private String nivelInstruccion;
