@@ -19,7 +19,7 @@ public class Contrato implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cargaFamiliar")
-	private Integer id_cargaFamiliar;
+	private Long id_cargaFamiliar;
 	
 	@Column(name = "fecha_inicio")
 	private Date fecha_inicio;

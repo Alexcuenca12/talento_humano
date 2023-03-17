@@ -24,7 +24,7 @@ public class CargaFamiliar implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cargaFamiliar")
-	private Integer id_cargaFamiliar;
+	private Long id_cargaFamiliar;
 	
 	@Column(name = "cedula")
 	private String cedula;
@@ -43,4 +43,8 @@ public class CargaFamiliar implements Serializable{
 	
 	@Column(name = "evidencia")
 	private byte[] evidencia;
+	
+	//Relation
+	@Column(name = "id_persona")
+	private String id_persona;
 }

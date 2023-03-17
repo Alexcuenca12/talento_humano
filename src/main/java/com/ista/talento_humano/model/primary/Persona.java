@@ -21,7 +21,7 @@ public class Persona implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_persona")
-	private Integer id_persona;
+	private Long id_persona;
 	
 	@Column(name = "ci_pasaporte")
 	private Integer ci_pasaporte;
