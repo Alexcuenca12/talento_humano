@@ -28,8 +28,8 @@ public class Persona implements Serializable{
 	@Column(name = "nombres")
 	private String nombres;
 	
-	@Column(name = "pais_naciemiento")
-	private String pais_naciemiento;
+	@Column(name = "pais_nacimiento")
+	private String pais_nacimiento;
 	
 	@Column(name = "edad")
 	private Integer edad;
@@ -105,4 +105,6 @@ public class Persona implements Serializable{
 	
 	@Column(name = "foto_carnet")
 	private String foto_carnet;
+
+	/*Revizar campos Fenix*/
 }
