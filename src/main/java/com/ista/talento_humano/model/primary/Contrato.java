@@ -3,12 +3,7 @@ package com.ista.talento_humano.model.primary;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -48,8 +43,10 @@ public class Contrato implements Serializable{
 	private byte[] evidencia;
 	
 	//Relation
-	@Column(name = "id_persona")
-	private String id_persona;
+	@JoinColumn(name="id_persona")
+	private Persona persona;
+
+
 	
 	
 	

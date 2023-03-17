@@ -1,8 +1,12 @@
 package com.ista.talento_humano.model.primary;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -107,4 +111,36 @@ public class Persona implements Serializable{
 	private String foto_carnet;
 
 	/*Revizar campos Fenix*/
+
+	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Contrato contrato;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Experiencia> experiencias;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Recomendaciones> recomendaciones;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<InstruccionFormal> instruccionFormal;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Capacitaciones> capacitaciones;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<CargaFamiliar> cargaFamiliar;
+
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Habilidades> habilidades;
+
+	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Usuario usuario;
 }
