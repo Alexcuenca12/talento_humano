@@ -1,5 +1,7 @@
 package com.ista.talento_humano.model.primary;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,8 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "persona")
-public class Persona {
+public class Persona implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_persona")
