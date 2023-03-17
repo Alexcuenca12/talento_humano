@@ -1,6 +1,6 @@
 package com.ista.talento_humano.model.secondary;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
