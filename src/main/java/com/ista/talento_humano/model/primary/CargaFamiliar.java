@@ -43,4 +43,8 @@ public class CargaFamiliar implements Serializable{
 	
 	@Column(name = "evidencia")
 	private byte[] evidencia;
+	
+	//Relation
+	@Column(name = "id_persona")
+	private String id_persona;
 }
