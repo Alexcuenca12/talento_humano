@@ -1,7 +1,6 @@
 package com.ista.talento_humano.model.primary;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;

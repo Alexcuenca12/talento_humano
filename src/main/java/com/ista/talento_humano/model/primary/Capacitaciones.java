@@ -59,5 +59,108 @@ public class Capacitaciones implements Serializable{
 	//Relation
 	@Column(name = "id_persona")
 	private String id_persona;
+
+	
+	//Getters y Setter (es solo por mi maquina que no lee lombook)
+	// despues borramos todos esto, cuando ya haya formateado mi pc jajaja
+	public Long getId_capacitaciones() {
+		return id_capacitaciones;
+	}
+
+	public void setId_capacitaciones(Long id_capacitaciones) {
+		this.id_capacitaciones = id_capacitaciones;
+	}
+
+	public String getInstitucion() {
+		return institucion;
+	}
+
+	public void setInstitucion(String institucion) {
+		this.institucion = institucion;
+	}
+
+	public String getTipo_evento() {
+		return tipo_evento;
+	}
+
+	public void setTipo_evento(String tipo_evento) {
+		this.tipo_evento = tipo_evento;
+	}
+
+	public String getNombre_evento() {
+		return nombre_evento;
+	}
+
+	public void setNombre_evento(String nombre_evento) {
+		this.nombre_evento = nombre_evento;
+	}
+
+	public Integer getArea_estudios() {
+		return area_estudios;
+	}
+
+	public void setArea_estudios(Integer area_estudios) {
+		this.area_estudios = area_estudios;
+	}
+
+	public String getTipo_certiicado() {
+		return tipo_certiicado;
+	}
+
+	public void setTipo_certiicado(String tipo_certiicado) {
+		this.tipo_certiicado = tipo_certiicado;
+	}
+
+	public Date getFecha_inicio() {
+		return fecha_inicio;
+	}
+
+	public void setFecha_inicio(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	public Date getFecha_fin() {
+		return fecha_fin;
+	}
+
+	public void setFecha_fin(Date fecha_fin) {
+		this.fecha_fin = fecha_fin;
+	}
+
+	public Integer getNumero_dias() {
+		return numero_dias;
+	}
+
+	public void setNumero_dias(Integer numero_dias) {
+		this.numero_dias = numero_dias;
+	}
+
+	public Integer getCantidad_horas() {
+		return cantidad_horas;
+	}
+
+	public void setCantidad_horas(Integer cantidad_horas) {
+		this.cantidad_horas = cantidad_horas;
+	}
+
+	public byte[] getEvidencia() {
+		return evidencia;
+	}
+
+	public void setEvidencia(byte[] evidencia) {
+		this.evidencia = evidencia;
+	}
+
+	public String getId_persona() {
+		return id_persona;
+	}
+
+	public void setId_persona(String id_persona) {
+		this.id_persona = id_persona;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }
