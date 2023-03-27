@@ -16,7 +16,6 @@ import lombok.Setter;
 public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_persona")
@@ -115,6 +114,14 @@ public class Persona implements Serializable{
 	@JsonIgnore
 	private Contrato contrato;
 
+	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Usuario usuario;
+
+	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Horario horario;
+
 	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Experiencia> experiencias;
@@ -139,7 +146,7 @@ public class Persona implements Serializable{
 	@JsonIgnore
 	private List<Habilidades> habilidades;
 
-	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Usuario usuario;
+
+
+
 }
