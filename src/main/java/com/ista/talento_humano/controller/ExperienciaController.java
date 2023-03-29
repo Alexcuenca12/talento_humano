@@ -16,52 +16,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.Capacitaciones;
-import com.ista.talento_humano.services.primary.CapacitacionesService;
+import com.ista.talento_humano.model.primary.Experiencia;
+import com.ista.talento_humano.services.primary.ExperienciaService;
 
 @CrossOrigin(origins = { "*" })
 @RestController
-@RequestMapping("/api/capacitaciones")
-public class CapacitacionesController {
+@RequestMapping("/api/experiencia")
+public class ExperienciaController {
 	@Autowired
-	CapacitacionesService capacitacionesService;
+	ExperienciaService ExperienciaService;
 	
 	@PostMapping("/create")
-	public ResponseEntity<Capacitaciones> crear(@RequestBody Capacitaciones obj) {
+	public ResponseEntity<Experiencia> crear(@RequestBody Experiencia obj) {
 		try {
-			return new ResponseEntity<>(capacitacionesService.save(obj), HttpStatus.CREATED);
+			return new ResponseEntity<>(ExperienciaService.save(obj), HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@GetMapping("/read")
-	public ResponseEntity<List<Capacitaciones>> obtenerLista() {
+	public ResponseEntity<List<Experiencia>> obtenerLista() {
 		try {
-			return new ResponseEntity<>(capacitacionesService.findByAll(), HttpStatus.OK);
+			return new ResponseEntity<>(ExperienciaService.findByAll(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Capacitaciones> actualizarUsuario(@PathVariable Long id, @RequestBody Capacitaciones obj) {
-		Capacitaciones fndObj = capacitacionesService.findById(id);
+	public ResponseEntity<Experiencia> actualizarUsuario(@PathVariable Long id, @RequestBody Experiencia obj) {
+		Experiencia fndObj = ExperienciaService.findById(id);
 		if (fndObj == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			try {
 				fndObj.setInstitucion(obj.getInstitucion());
-				fndObj.setTipo_evento(obj.getTipo_evento());
-				fndObj.setNombre_evento(obj.getNombre_evento());
-				fndObj.setArea_estudios(obj.getArea_estudios());
-				fndObj.setTipo_certiicado(obj.getTipo_certiicado());
+				fndObj.setPuesto(obj.getPuesto());
+				fndObj.setArea_trabajo(obj.getArea_trabajo());
 				fndObj.setFecha_inicio(obj.getFecha_inicio());
 				fndObj.setFecha_fin(obj.getFecha_fin());
-				fndObj.setNumero_dias(obj.getNumero_dias());
-				fndObj.setCantidad_horas(obj.getCantidad_horas());
-				fndObj.setEvidencia(obj.getEvidencia());				
-				return new ResponseEntity<>(capacitacionesService.save(fndObj), HttpStatus.CREATED);
+				fndObj.setFecha_inicio(obj.getFecha_inicio());
+				fndObj.setActividades(obj.getActividades());
+				fndObj.setEstado(obj.getEstado());
+				fndObj.setCertificado_trabajo(obj.getCertificado_trabajo());				
+				return new ResponseEntity<>(ExperienciaService.save(fndObj), HttpStatus.CREATED);
 			} catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
@@ -72,7 +71,7 @@ public class CapacitacionesController {
 	public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
 		try {
-			capacitacionesService.delete(id);
+			ExperienciaService.delete(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");

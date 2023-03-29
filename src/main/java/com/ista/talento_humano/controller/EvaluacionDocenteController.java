@@ -16,52 +16,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.Capacitaciones;
-import com.ista.talento_humano.services.primary.CapacitacionesService;
+import com.ista.talento_humano.model.primary.EvaluacionDocente;
+import com.ista.talento_humano.services.primary.EvaluacionDocenteService;
 
 @CrossOrigin(origins = { "*" })
 @RestController
-@RequestMapping("/api/capacitaciones")
-public class CapacitacionesController {
+@RequestMapping("/api/evaluaciondocente")
+public class EvaluacionDocenteController {
 	@Autowired
-	CapacitacionesService capacitacionesService;
+	EvaluacionDocenteService EvaluacionDocenteService;
 	
 	@PostMapping("/create")
-	public ResponseEntity<Capacitaciones> crear(@RequestBody Capacitaciones obj) {
+	public ResponseEntity<EvaluacionDocente> crear(@RequestBody EvaluacionDocente obj) {
 		try {
-			return new ResponseEntity<>(capacitacionesService.save(obj), HttpStatus.CREATED);
+			return new ResponseEntity<>(EvaluacionDocenteService.save(obj), HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@GetMapping("/read")
-	public ResponseEntity<List<Capacitaciones>> obtenerLista() {
+	public ResponseEntity<List<EvaluacionDocente>> obtenerLista() {
 		try {
-			return new ResponseEntity<>(capacitacionesService.findByAll(), HttpStatus.OK);
+			return new ResponseEntity<>(EvaluacionDocenteService.findByAll(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Capacitaciones> actualizarUsuario(@PathVariable Long id, @RequestBody Capacitaciones obj) {
-		Capacitaciones fndObj = capacitacionesService.findById(id);
+	public ResponseEntity<EvaluacionDocente> actualizarUsuario(@PathVariable Long id, @RequestBody EvaluacionDocente obj) {
+		EvaluacionDocente fndObj = EvaluacionDocenteService.findById(id);
 		if (fndObj == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			try {
-				fndObj.setInstitucion(obj.getInstitucion());
-				fndObj.setTipo_evento(obj.getTipo_evento());
-				fndObj.setNombre_evento(obj.getNombre_evento());
-				fndObj.setArea_estudios(obj.getArea_estudios());
-				fndObj.setTipo_certiicado(obj.getTipo_certiicado());
-				fndObj.setFecha_inicio(obj.getFecha_inicio());
-				fndObj.setFecha_fin(obj.getFecha_fin());
-				fndObj.setNumero_dias(obj.getNumero_dias());
-				fndObj.setCantidad_horas(obj.getCantidad_horas());
-				fndObj.setEvidencia(obj.getEvidencia());				
-				return new ResponseEntity<>(capacitacionesService.save(fndObj), HttpStatus.CREATED);
+				fndObj.setCodCarrera(obj.getCodCarrera());
+				fndObj.setEvidenciaEva(obj.getEvidenciaEva());
+				
+				return new ResponseEntity<>(EvaluacionDocenteService.save(fndObj), HttpStatus.CREATED);
 			} catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
@@ -72,7 +65,7 @@ public class CapacitacionesController {
 	public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
 		try {
-			capacitacionesService.delete(id);
+			EvaluacionDocenteService.delete(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");

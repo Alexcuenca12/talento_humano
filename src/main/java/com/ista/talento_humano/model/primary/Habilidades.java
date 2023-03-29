@@ -22,6 +22,24 @@ public class Habilidades implements Serializable {
     private Long id_habilidades;
     @Column(name = "descripcion")
     private String Descripcion;
-
+    
     /*Relacion con persona*/
+	
+    public Long getId_habilidades() {
+		return id_habilidades;
+	}
+	public void setId_habilidades(Long id_habilidades) {
+		this.id_habilidades = id_habilidades;
+	}
+	public String getDescripcion() {
+		return Descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		Descripcion = descripcion;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+    
 }

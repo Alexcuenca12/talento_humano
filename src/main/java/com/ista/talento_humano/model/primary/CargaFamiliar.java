@@ -47,4 +47,69 @@ public class CargaFamiliar implements Serializable{
 	//Relation
 	@Column(name = "id_persona")
 	private String id_persona;
+
+	
+	
+	
+	
+	public Long getId_cargaFamiliar() {
+		return id_cargaFamiliar;
+	}
+
+	public void setId_cargaFamiliar(Long id_cargaFamiliar) {
+		this.id_cargaFamiliar = id_cargaFamiliar;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getNombre_pariente() {
+		return nombre_pariente;
+	}
+
+	public void setNombre_pariente(String nombre_pariente) {
+		this.nombre_pariente = nombre_pariente;
+	}
+
+	public String getApellido_pariente() {
+		return apellido_pariente;
+	}
+
+	public void setApellido_pariente(String apellido_pariente) {
+		this.apellido_pariente = apellido_pariente;
+	}
+
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public byte[] getEvidencia() {
+		return evidencia;
+	}
+
+	public void setEvidencia(byte[] evidencia) {
+		this.evidencia = evidencia;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }
