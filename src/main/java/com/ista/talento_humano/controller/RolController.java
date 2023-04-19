@@ -64,6 +64,7 @@ public class RolController {
         }
     }
 
+
     @GetMapping("/find/{id}")
     public ResponseEntity<Rol> getById(@PathVariable("id") Long id) {
         try {
