@@ -19,56 +19,57 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.Habilidades;
 import com.ista.talento_humano.services.primary.HabilidadesService;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/habilidades")
 public class HabilidadesController {
-	@Autowired
-	HabilidadesService HabilidadesService;
-	
-	@PostMapping("/create")
-	public ResponseEntity<Habilidades> crear(@RequestBody Habilidades obj) {
-		try {
-			return new ResponseEntity<>(HabilidadesService.save(obj), HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 
-	@GetMapping("/read")
-	public ResponseEntity<List<Habilidades>> obtenerLista() {
-		try {
-			return new ResponseEntity<>(HabilidadesService.findByAll(), HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Habilidades> actualizarUsuario(@PathVariable Long id, @RequestBody Habilidades obj) {
-		Habilidades fndObj = HabilidadesService.findById(id);
-		if (fndObj == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			try {
-				fndObj.setDescripcion(obj.getDescripcion());			
-				return new ResponseEntity<>(HabilidadesService.save(fndObj), HttpStatus.CREATED);
-			} catch (Exception e) {
-				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		}
-	}
-	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> eliminar(@PathVariable Long id) {
+    @Autowired
+    HabilidadesService HabilidadesService;
 
-		try {
-			HabilidadesService.delete(id);
-			return new ResponseEntity<>(HttpStatus.OK);
-		} catch (DataIntegrityViolationException e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+    @PostMapping("/create")
+    public ResponseEntity<Habilidades> crear(@RequestBody Habilidades obj) {
+        try {
+            return new ResponseEntity<>(HabilidadesService.save(obj), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<List<Habilidades>> obtenerLista() {
+        try {
+            return new ResponseEntity<>(HabilidadesService.findByAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Habilidades> actualizarUsuario(@PathVariable Long id, @RequestBody Habilidades obj) {
+        Habilidades fndObj = HabilidadesService.findById(id);
+        if (fndObj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                fndObj.setDescripcion(obj.getDescripcion());
+                return new ResponseEntity<>(HabilidadesService.save(fndObj), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+
+        try {
+            HabilidadesService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

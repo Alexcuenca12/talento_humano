@@ -23,6 +23,7 @@ import com.ista.talento_humano.services.primary.CargaFamiliarService;
 @RestController
 @RequestMapping("/api/CargaFamiliar")
 public class CargaFamiliarController {
+
 	@Autowired
 	CargaFamiliarService CargaFamiliarService;
 	

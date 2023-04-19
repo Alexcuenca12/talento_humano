@@ -23,6 +23,7 @@ import com.ista.talento_humano.services.primary.CapacitacionesService;
 @RestController
 @RequestMapping("/api/capacitaciones")
 public class CapacitacionesController {
+
 	@Autowired
 	CapacitacionesService capacitacionesService;
 	

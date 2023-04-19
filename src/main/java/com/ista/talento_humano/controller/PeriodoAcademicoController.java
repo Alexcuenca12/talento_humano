@@ -19,58 +19,59 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.PeriodoAcademico;
 import com.ista.talento_humano.services.primary.PeriodoAcademicoService;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/periodoacademico")
 public class PeriodoAcademicoController {
-	@Autowired
-	PeriodoAcademicoService PeriodoAcademicoService;
-	
-	@PostMapping("/create")
-	public ResponseEntity<PeriodoAcademico> crear(@RequestBody PeriodoAcademico obj) {
-		try {
-			return new ResponseEntity<>(PeriodoAcademicoService.save(obj), HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 
-	@GetMapping("/read")
-	public ResponseEntity<List<PeriodoAcademico>> obtenerLista() {
-		try {
-			return new ResponseEntity<>(PeriodoAcademicoService.findByAll(), HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	@PutMapping("/update/{id}")
-	public ResponseEntity<PeriodoAcademico> actualizarUsuario(@PathVariable Long id, @RequestBody PeriodoAcademico obj) {
-		PeriodoAcademico fndObj = PeriodoAcademicoService.findById(id);
-		if (fndObj == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			try {
-				fndObj.setNombre(obj.getNombre());
-				fndObj.setFecha_inicio(obj.getFecha_inicio());
-				fndObj.setFecha_fin(obj.getFecha_fin());			
-				return new ResponseEntity<>(PeriodoAcademicoService.save(fndObj), HttpStatus.CREATED);
-			} catch (Exception e) {
-				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		}
-	}
-	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> eliminar(@PathVariable Long id) {
+    @Autowired
+    PeriodoAcademicoService PeriodoAcademicoService;
 
-		try {
-			PeriodoAcademicoService.delete(id);
-			return new ResponseEntity<>(HttpStatus.OK);
-		} catch (DataIntegrityViolationException e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+    @PostMapping("/create")
+    public ResponseEntity<PeriodoAcademico> crear(@RequestBody PeriodoAcademico obj) {
+        try {
+            return new ResponseEntity<>(PeriodoAcademicoService.save(obj), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<List<PeriodoAcademico>> obtenerLista() {
+        try {
+            return new ResponseEntity<>(PeriodoAcademicoService.findByAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PeriodoAcademico> actualizarUsuario(@PathVariable Long id, @RequestBody PeriodoAcademico obj) {
+        PeriodoAcademico fndObj = PeriodoAcademicoService.findById(id);
+        if (fndObj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                fndObj.setNombre(obj.getNombre());
+                fndObj.setFecha_inicio(obj.getFecha_inicio());
+                fndObj.setFecha_fin(obj.getFecha_fin());
+                return new ResponseEntity<>(PeriodoAcademicoService.save(fndObj), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+
+        try {
+            PeriodoAcademicoService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

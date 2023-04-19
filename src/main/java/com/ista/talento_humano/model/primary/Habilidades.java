@@ -20,6 +20,7 @@ public class Habilidades implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_habilidades")
     private Long id_habilidades;
+
     @Column(name = "descripcion")
     private String Descripcion;
     

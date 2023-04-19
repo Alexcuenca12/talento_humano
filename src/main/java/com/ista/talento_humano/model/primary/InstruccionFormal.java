@@ -21,20 +21,28 @@ public class InstruccionFormal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_instruccion")
     private Long id_instruccion;
+
     @Column(name = "nivel_instruccion")
     private String nivelInstruccion;
+
     @Column(name = "institucion_educativa")
     private String institucionEducativa;
+
     @Column(name = "titulo_obtenido")
     private String tituloObtenido;
+
     @Column(name = "No_RegistroSenescyt")
     private String num_SenecytRegistro;
+
     @Column(name = "tiempo_estudio")
     private Double tiempoEstudio;
+
     @Column(name = "anio_graduacion")
     private int anioGraduacion;
+
     @Column(name = "area_estudios")
     private String areaEstudios;
+
     @Column(name = "titulo")
     private Byte[] titulo;
 

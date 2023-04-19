@@ -19,62 +19,63 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.Contrato;
 import com.ista.talento_humano.services.primary.ContratoService;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/contrato")
 public class ContratoController {
-	@Autowired
-	ContratoService ContratoService;
-	
-	@PostMapping("/create")
-	public ResponseEntity<Contrato> crear(@RequestBody Contrato obj) {
-		try {
-			return new ResponseEntity<>(ContratoService.save(obj), HttpStatus.CREATED);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 
-	@GetMapping("/read")
-	public ResponseEntity<List<Contrato>> obtenerLista() {
-		try {
-			return new ResponseEntity<>(ContratoService.findByAll(), HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Contrato> actualizarUsuario(@PathVariable Long id, @RequestBody Contrato obj) {
-		Contrato fndObj = ContratoService.findById(id);
-		if (fndObj == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			try {
-				fndObj.setFecha_inicio(obj.getFecha_inicio());
-				fndObj.setFecha_fin(obj.getFecha_fin());
-				fndObj.setAnio_duracion(obj.getAnio_duracion());
-				fndObj.setHoras_diarias(obj.getHoras_diarias());
-				fndObj.setCargo(obj.getCargo());
-				fndObj.setSalario(obj.getSalario());
-				fndObj.setEvidencia(obj.getEvidencia());				
-				return new ResponseEntity<>(ContratoService.save(fndObj), HttpStatus.CREATED);
-			} catch (Exception e) {
-				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		}
-	}
-	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> eliminar(@PathVariable Long id) {
+    @Autowired
+    ContratoService ContratoService;
 
-		try {
-			ContratoService.delete(id);
-			return new ResponseEntity<>(HttpStatus.OK);
-		} catch (DataIntegrityViolationException e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+    @PostMapping("/create")
+    public ResponseEntity<Contrato> crear(@RequestBody Contrato obj) {
+        try {
+            return new ResponseEntity<>(ContratoService.save(obj), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<List<Contrato>> obtenerLista() {
+        try {
+            return new ResponseEntity<>(ContratoService.findByAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Contrato> actualizarUsuario(@PathVariable Long id, @RequestBody Contrato obj) {
+        Contrato fndObj = ContratoService.findById(id);
+        if (fndObj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                fndObj.setFecha_inicio(obj.getFecha_inicio());
+                fndObj.setFecha_fin(obj.getFecha_fin());
+                fndObj.setAnio_duracion(obj.getAnio_duracion());
+                fndObj.setHoras_diarias(obj.getHoras_diarias());
+                fndObj.setCargo(obj.getCargo());
+                fndObj.setSalario(obj.getSalario());
+                fndObj.setEvidencia(obj.getEvidencia());
+                return new ResponseEntity<>(ContratoService.save(fndObj), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+
+        try {
+            ContratoService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
