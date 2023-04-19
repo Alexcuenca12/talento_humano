@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/usuarios")
-@CrossOrigin("*")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
-
-
     @Autowired
     private UsuarioService usuarioService;
+
     @Autowired
     UsuarioRepository userRepository;
-
 
     @GetMapping("/users/list")
     public ResponseEntity<List<Usuario>> getUsuariosList() {
