@@ -1,12 +1,10 @@
 package com.ista.talento_humano.model.secondary;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ista.talento_humano.model.primary.PeriodoAcademico;
+import com.ista.talento_humano.model.primary.Persona;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,6 +38,15 @@ public class Distributivo {
 	
 	@Column(name = "evidencia")
 	private Integer evidencia;
-		
-	//Relaciones
+
+	//Relation
+	@OneToOne
+	@JoinColumn(name = "id_persona")
+	private Persona persona;
+
+	@OneToOne
+	@JoinColumn(name = "id_periodoacademico")
+	private PeriodoAcademico periodo;
+
+
 }

@@ -3,19 +3,18 @@ package com.ista.talento_humano.model.primary;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
 @Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "carga_familiar")
 public class CargaFamiliar implements Serializable{
 
@@ -43,10 +42,11 @@ public class CargaFamiliar implements Serializable{
 	
 	@Column(name = "evidencia")
 	private byte[] evidencia;
-	
+
 	//Relation
-	@Column(name = "id_persona")
-	private String id_persona;
+	@ManyToOne
+	@JoinColumn(name = "id_persona")
+	private Persona persona;
 
 	
 	

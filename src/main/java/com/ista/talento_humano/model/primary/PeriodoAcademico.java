@@ -1,20 +1,22 @@
 package com.ista.talento_humano.model.primary;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ista.talento_humano.model.secondary.Distributivo;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
 @Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "periodoacademico")
 public class PeriodoAcademico {
 	@Id
@@ -31,38 +33,16 @@ public class PeriodoAcademico {
 	@Column(name = "fecha_fin")
 	private Date fecha_fin;
 
-	public Long getId_periodoacademico() {
-		return id_periodoacademico;
-	}
+	@OneToOne(mappedBy = "periodo",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Distributivo distributivo;
 
-	public void setId_periodoacademico(Long id_periodoacademico) {
-		this.id_periodoacademico = id_periodoacademico;
-	}
+	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Horario> horarios;
 
-	public String getNombre() {
-		return nombre;
-	}
+	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<EvaluacionDocente> evaluaciones;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Date getFecha_inicio() {
-		return fecha_inicio;
-	}
-
-	public void setFecha_inicio(Date fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
-	}
-
-	public Date getFecha_fin() {
-		return fecha_fin;
-	}
-
-	public void setFecha_fin(Date fecha_fin) {
-		this.fecha_fin = fecha_fin;
-	}
-	
-	
-	
 }

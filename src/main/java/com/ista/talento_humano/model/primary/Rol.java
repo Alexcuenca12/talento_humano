@@ -1,5 +1,6 @@
 package com.ista.talento_humano.model.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Setter
 @Getter
@@ -25,4 +28,7 @@ public class Rol implements Serializable {
     private String descripcionRol;
 
     /*Agregar relacion con Usuario*/
+    @JsonIgnore
+    @OneToMany(mappedBy = "rol")
+    private List<Usuario> usuario;
 }

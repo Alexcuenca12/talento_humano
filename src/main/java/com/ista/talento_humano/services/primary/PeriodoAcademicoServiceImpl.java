@@ -8,7 +8,7 @@ import com.ista.talento_humano.model.primary.PeriodoAcademico;
 import com.ista.talento_humano.repository.primary.PeriodoAcademicoRepository;
 
 @Service
-public class PeriodoAcademicoServiceImpl extends GenericServiceImpl<PeriodoAcademico, Long>{
+public class PeriodoAcademicoServiceImpl extends GenericServiceImpl<PeriodoAcademico, Long> implements PeriodoAcademicoService{
 	@Autowired
 	PeriodoAcademicoRepository PeriodoAcademicoRepository;
 	@Override

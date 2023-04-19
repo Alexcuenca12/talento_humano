@@ -1,11 +1,18 @@
 package com.ista.talento_humano.model.primary;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "evaluacion")
 public class EvaluacionDocente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,34 +26,14 @@ public class EvaluacionDocente implements Serializable {
     @Column(name = "evidencia_evaluacion")
     private Byte[] EvidenciaEva;
 
-	public Long getId_evaluacion() {
-		return id_evaluacion;
-	}
+    @ManyToOne
+    @JoinColumn(name = "id_periodo")
+    private PeriodoAcademico periodoAc;
 
-	public void setId_evaluacion(Long id_evaluacion) {
-		this.id_evaluacion = id_evaluacion;
-	}
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
 
-	public String getCodCarrera() {
-		return codCarrera;
-	}
 
-	public void setCodCarrera(String codCarrera) {
-		this.codCarrera = codCarrera;
-	}
-
-	public Byte[] getEvidenciaEva() {
-		return EvidenciaEva;
-	}
-
-	public void setEvidenciaEva(Byte[] evidenciaEva) {
-		EvidenciaEva = evidenciaEva;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-    
 
 }

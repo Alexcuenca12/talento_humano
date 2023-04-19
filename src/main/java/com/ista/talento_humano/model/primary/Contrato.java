@@ -5,12 +5,16 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
 @Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "contrato")
 public class Contrato implements Serializable{
 
@@ -43,75 +47,7 @@ public class Contrato implements Serializable{
 	private byte[] evidencia;
 	
 	//Relation
-	@JoinColumn(name="id_persona")
+	@OneToOne
+	@JoinColumn(name = "id_persona")
 	private Persona persona;
-
-	public Long getId_cargaFamiliar() {
-		return id_cargaFamiliar;
-	}
-
-	public void setId_cargaFamiliar(Long id_cargaFamiliar) {
-		this.id_cargaFamiliar = id_cargaFamiliar;
-	}
-
-	public Date getFecha_inicio() {
-		return fecha_inicio;
-	}
-
-	public void setFecha_inicio(Date fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
-	}
-
-	public Date getFecha_fin() {
-		return fecha_fin;
-	}
-
-	public void setFecha_fin(Date fecha_fin) {
-		this.fecha_fin = fecha_fin;
-	}
-
-	public Integer getAnio_duracion() {
-		return anio_duracion;
-	}
-
-	public void setAnio_duracion(Integer anio_duracion) {
-		this.anio_duracion = anio_duracion;
-	}
-
-	public Integer getHoras_diarias() {
-		return horas_diarias;
-	}
-
-	public void setHoras_diarias(Integer horas_diarias) {
-		this.horas_diarias = horas_diarias;
-	}
-
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
-
-	public Double getSalario() {
-		return salario;
-	}
-
-	public void setSalario(Double salario) {
-		this.salario = salario;
-	}
-
-	public byte[] getEvidencia() {
-		return evidencia;
-	}
-
-	public void setEvidencia(byte[] evidencia) {
-		this.evidencia = evidencia;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 }

@@ -24,22 +24,11 @@ public class Habilidades implements Serializable {
     private String Descripcion;
     
     /*Relacion con persona*/
+	@ManyToOne
+	@JoinColumn(name = "id_persona")
+	private Persona persona;
 	
-    public Long getId_habilidades() {
-		return id_habilidades;
-	}
-	public void setId_habilidades(Long id_habilidades) {
-		this.id_habilidades = id_habilidades;
-	}
-	public String getDescripcion() {
-		return Descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
     
     
 }

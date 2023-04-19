@@ -34,6 +34,9 @@ public class Recomendaciones implements Serializable {
     private Byte[] documentoRecomendacion;
 
     /* Agregar Relacion Con Persona*/
-
+    //Relation
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
 
 }

@@ -20,13 +20,19 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long id_usuario;
-    @Column(name = "user")
+    @Column(name = "username")
     private String user;
     @Column(name = "password")
     private String password;
 
     /* Agregar relaciones con Persona y Rol*/
+    @OneToOne()
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
 
+    @ManyToOne
+    @JoinColumn(name = "rolId")
+    private Rol rol;
 
 
 }

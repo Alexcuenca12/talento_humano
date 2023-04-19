@@ -30,4 +30,12 @@ public class Horario implements Serializable {
     @Column(length = 10485760)
     private String distributivo;
 
+    //Relation
+    @OneToOne
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
+
+    @ManyToOne
+    @JoinColumn(name = "id_periodo")
+    private PeriodoAcademico periodoAc;
 }
