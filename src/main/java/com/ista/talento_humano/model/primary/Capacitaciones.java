@@ -35,7 +35,7 @@ public class Capacitaciones implements Serializable{
 	private String nombre_evento;
 	
 	@Column(name = "area_estudios")
-	private Integer area_estudios;
+	private String area_estudios;
 	
 	@Column(name = "tipo_certiicado")
 	private String tipo_certiicado;

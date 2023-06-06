@@ -59,6 +59,22 @@ public class UsuarioController {
         }
     }
 
+    @PutMapping("/update/{usuarioId}")
+    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestBody Usuario obj) {
+        Usuario fndobj = UsuarioService.findById(id);
+        if (fndobj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                fndobj.setUsername(obj.getUsername());
+                fndobj.setPassword(obj.getPassword());
+                return new ResponseEntity<>(UsuarioService.save(fndobj), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
     @PutMapping("/delete/{usuarioId}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Usuario usuario = UsuarioService.findById(id);
