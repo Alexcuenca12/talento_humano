@@ -28,7 +28,7 @@ public class FichaPersonal {
 
     //estado
     @Column(name = "estado_ficha")
-    private Boolean estado_ficha;
+    private String estado_ficha;
 
     //Relaciones
     @ManyToOne
