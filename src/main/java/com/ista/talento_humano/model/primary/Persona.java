@@ -158,5 +158,10 @@ public class Persona implements Serializable{
 	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<EvaluacionDocente> evaluacionDocentes;
+
+	@JsonIgnore
+	@OneToOne(mappedBy = "persona")
+	private FichaPersonal fichaPersonal;
+
 }
 

@@ -2,9 +2,11 @@ package com.ista.talento_humano.model.primary;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -59,6 +61,10 @@ public class Capacitaciones implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "capacitaciones")
+	private List<FichaPersonal> fichaPersonal;
 
 	
 }

@@ -1,5 +1,6 @@
 package com.ista.talento_humano.model.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,4 +42,9 @@ public class Horario implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_periodo")
     private PeriodoAcademico periodoAc;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "horario")
+    private FichaPersonal fichaPersonal;
+
 }

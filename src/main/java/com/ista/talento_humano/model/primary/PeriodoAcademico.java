@@ -45,4 +45,8 @@ public class PeriodoAcademico {
 	@JsonIgnore
 	private List<EvaluacionDocente> evaluaciones;
 
+	@JsonIgnore
+	@OneToOne(mappedBy = "periodoAcademico")
+	private FichaPersonal fichaPersonal;
+
 }

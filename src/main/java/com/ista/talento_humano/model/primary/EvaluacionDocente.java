@@ -1,5 +1,6 @@
 package com.ista.talento_humano.model.primary;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,8 @@ public class EvaluacionDocente implements Serializable {
     @JoinColumn(name = "id_persona")
     private Persona persona;
 
-
+    @JsonIgnore
+    @OneToOne(mappedBy = "evaluacionDocente")
+    private FichaPersonal fichaPersonal;
 
 }

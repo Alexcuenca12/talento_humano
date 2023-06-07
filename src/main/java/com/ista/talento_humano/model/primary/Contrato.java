@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,4 +51,8 @@ public class Contrato implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
+
+	@JsonIgnore
+	@OneToOne(mappedBy = "contrato")
+	private FichaPersonal fichaPersonal;
 }
