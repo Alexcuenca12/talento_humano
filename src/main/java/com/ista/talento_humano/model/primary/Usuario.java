@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
     private Persona persona;
 
     @ManyToOne
-    @JoinColumn(name = "rolId")
+    @JoinColumn(name = "idRol")
     private Rol rol;
 
 

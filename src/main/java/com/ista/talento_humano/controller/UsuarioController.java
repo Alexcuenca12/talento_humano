@@ -18,8 +18,8 @@ public class UsuarioController {
     private UsuarioService UsuarioService;
     @Autowired
     UsuarioRepository UserRepository;
-    
-    
+
+
     @PostMapping("/signin")
     public Usuario IniciarSesion(@RequestBody Usuario usuario) throws Exception {
         if (UserRepository.existsByUsername(usuario.getUsername())) {
@@ -59,22 +59,6 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/update/{usuarioId}")
-    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestBody Usuario obj) {
-        Usuario fndobj = UsuarioService.findById(id);
-        if (fndobj == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            try {
-                fndobj.setUsername(obj.getUsername());
-                fndobj.setPassword(obj.getPassword());
-                return new ResponseEntity<>(UsuarioService.save(fndobj), HttpStatus.CREATED);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-    }
-
     @PutMapping("/delete/{usuarioId}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Usuario usuario = UsuarioService.findById(id);
@@ -94,6 +78,17 @@ public class UsuarioController {
     @GetMapping("/search/{username}")
     public Usuario obtenerUsuario(@PathVariable Long id) {
         return UsuarioService.findById(id);
+    }
+
+    @PostMapping("/signup")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Usuario create(@RequestBody Usuario usuario) throws Exception {
+        // VERIFICAR SI HAY EXISTENCIA DE USUARIO EN NUESTRA BD..
+        if (!UserRepository.existsByUsername(usuario.getUsername())) {
+            return UserRepository.save(usuario);
+        } else {
+            throw new Exception("Error: Usuario ya esta en la BD!");
+        }
     }
 
 
