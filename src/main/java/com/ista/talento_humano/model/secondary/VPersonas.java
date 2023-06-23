@@ -20,7 +20,7 @@ public class VPersonas implements Serializable{
 	private Integer id_persona;
 	
 	@Column(name = "ci_pasaporte")
-	private Integer ci_pasaporte;
+	private String ci_pasaporte;
 	
 	@Column(name = "apellidos")
 	private String apellidos;
