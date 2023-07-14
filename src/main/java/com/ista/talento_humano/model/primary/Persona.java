@@ -127,9 +127,9 @@ public class Persona implements Serializable{
 	@JsonIgnore
 	private Horario horario;
 
-	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	/*@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
-	private Distributivo distributivo;
+	private Distributivo distributivo;*/
 
 	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore

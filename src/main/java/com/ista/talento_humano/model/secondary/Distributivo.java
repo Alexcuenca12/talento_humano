@@ -2,7 +2,6 @@ package com.ista.talento_humano.model.secondary;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ista.talento_humano.model.primary.PeriodoAcademico;
 import com.ista.talento_humano.model.primary.Persona;
 import lombok.Getter;
@@ -40,13 +39,11 @@ public class Distributivo {
 	private Integer evidencia;
 
 	//Relation
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
 	@OneToOne
 	@JoinColumn(name = "id_periodoacademico")
-	private PeriodoAcademico periodo;
-
-
+	private PeriodoAcademico periodo;*/
 }

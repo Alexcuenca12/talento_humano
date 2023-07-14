@@ -19,8 +19,8 @@ public class VPersonas implements Serializable{
 	@Column(name = "id_persona")
 	private Integer id_persona;
 	
-	@Column(name = "ci_pasaporte")
-	private String ci_pasaporte;
+	@Column(name = "cedula")
+	private String cedula;
 	
 	@Column(name = "apellidos")
 	private String apellidos;
