@@ -45,7 +45,7 @@ public class Contrato implements Serializable{
 	private Double salario;
 	
 	@Column(name = "evidencia")
-	private byte[] evidencia;
+	private String evidencia;
 	
 	//Relation
 	@OneToOne
