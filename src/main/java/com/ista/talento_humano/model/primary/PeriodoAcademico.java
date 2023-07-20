@@ -33,10 +33,6 @@ public class PeriodoAcademico {
 	@Column(name = "fecha_fin")
 	private Date fecha_fin;
 
-	@OneToOne(mappedBy = "periodo",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Distributivo distributivo;
-
 	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Horario> horarios;

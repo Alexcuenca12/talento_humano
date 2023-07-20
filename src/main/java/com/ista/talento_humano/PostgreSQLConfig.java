@@ -36,28 +36,28 @@ public class PostgreSQLConfig {
 		
 		return dataSource;
 	}
-	
+
 
 	@Primary
 	@Bean(name = "adminEntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(adminDatasource());
-		em.setPackagesToScan("com.mitocode.model.admin");
-		
+		em.setPackagesToScan("com.ista.talento_humano.model.secondary");
+
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
-		
+
 		Map<String, Object> properties = new HashMap<>();
 		properties.put("hibernate.hbm2ddl.auto", env.getProperty("postgre.jpa.hibernate.ddl-auto"));
 		properties.put("hibernate.show-sql", env.getProperty("postgre.jpa.show-sql"));
 		properties.put("hibernate.dialect", env.getProperty("postgre.jpa.database-platform"));
-		
+
 		em.setJpaPropertyMap(properties);
-		
+
 		return em;
-		
 	}
+
 	
 	@Primary
 	@Bean(name = "adminTransactionManager")

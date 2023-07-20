@@ -40,8 +40,8 @@ public class MySQLConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(userDatasource());
-		em.setPackagesToScan("com.mitocode.model.user");
-		
+		em.setPackagesToScan("com.ista.talento_humano.model.primary");
+
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		

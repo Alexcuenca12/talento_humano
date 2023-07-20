@@ -13,6 +13,6 @@ public interface VPersonasRepository extends JpaRepository<VPersonas, String> {
     List<VPersonas> findAll();
 
     // metodo para buscar una persona por su cedula id
-    List<VPersonas> findByCedula(String cedula);
+    List<VPersonas> findByCiPasaporte(String cedula);
 
 }
