@@ -25,10 +25,10 @@ public class Persona implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_persona")
 	private Long id_persona;
-	
+
 	@Column(name = "ci_pasaporte")
 	private Integer ci_pasaporte;
-	
+
 	@Column(name = "apellidos")
 	private String apellidos;
 	
@@ -127,9 +127,6 @@ public class Persona implements Serializable{
 	@JsonIgnore
 	private Horario horario;
 
-	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Distributivo distributivo;
 
 	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
