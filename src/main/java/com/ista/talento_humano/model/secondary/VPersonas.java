@@ -22,14 +22,23 @@ public class VPersonas implements Serializable{
 	@Column(name = "cedula")
 	private String cedula;
 	
-	@Column(name = "apellidos")
-	private String apellidos;
+	@Column(name = "apellido_paterno")
+	private String apellido_paterno;
+
+	@Column(name = "apellido_materno")
+	private String apellido_materno;
 	
-	@Column(name = "nombres")
-	private String nombres;
+	@Column(name = "priemer_nombre")
+	private String priemer_nombre;
+
+	@Column(name = "segundo_nombre")
+	private String segundo_nombre;
+
+	@Column(name = "fecha_nacimiento")
+	private String fecha_nacimiento;
 	
-	@Column(name = "pais_naciemiento")
-	private String pais_naciemiento;
+	@Column(name = "pais_natal")
+	private String pais_natal;
 	
 	@Column(name = "edad")
 	private Integer edad;
@@ -39,36 +48,39 @@ public class VPersonas implements Serializable{
 	
 	@Column(name = "sexo")
 	private String sexo;
-	
+
+	@Column(name = "tipo_sangre")
+	private String tipo_sangre;
+
 	@Column(name = "estado_civil")
 	private String estado_civil;
 	
 	@Column(name = "etnia")
 	private String etnia;
+
+	@Column(name = "idioma_raiz")
+	private String idioma_raiz;
+
+	@Column(name = "idioma_secundario")
+	private String idioma_secundario;
 	
-	@Column(name = "tipo_sangre")
-	private String tipo_sangre;
-	
-	@Column(name = "celular")
-	private String celular;
-	
-	@Column(name = "correo")
-	private String correo;
-	
-	@Column(name = "correo_institucional")
-	private String correo_institucional;
-	
+
+	////////////////////////////////////////////
+
 	@Column(name = "pais_residencia")
 	private String pais_residencia;
-	
+
+	@Column(name = "provincia_residencia")
+	private String provincia_residencia;
+
+	@Column(name = "canton_residencia")
+	private String canton_residencia;
+
 	@Column(name = "parroquia_recidencial")
 	private String parroquia_recidencial;
 	
-	@Column(name = "calle_principal")
-	private String calle_principal;
-	
-	@Column(name = "calle_secundaria")
-	private String calle_secundaria;
+	@Column(name = "calles")
+	private String calles;
 	
 	@Column(name = "numero_casa")
 	private Integer numero_casa;
@@ -78,21 +90,28 @@ public class VPersonas implements Serializable{
 	
 	@Column(name = "referencia")
 	private String referencia;
-	
+
+	//////////////////////////////////////////////////
+
+	@Column(name = "celular")
+	private String celular;
+
+	@Column(name = "correo")
+	private String correo;
+
+	@Column(name = "correo_institucional")
+	private String correo_institucional;
+
 	@Column(name = "telefono")
 	private String telefono;
 	
-	@Column(name = "idioma_raiz")
-	private String idioma_raiz;
-	
-	@Column(name = "idioma_secundario")
-	private String idioma_secundario;
-	
 	@Column(name = "foto")
 	private String foto;
-	
+
+	///////////////////////////////////////////////
+
 	@Column(name = "discapacidad")
-	private String discapasidad;
+	private String discapacidad;
 	
 	@Column(name = "tipo_discapacidad")
 	private String tipo_discapacidad;

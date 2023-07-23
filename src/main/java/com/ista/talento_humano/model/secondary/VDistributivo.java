@@ -2,8 +2,6 @@ package com.ista.talento_humano.model.secondary;
 
 import javax.persistence.*;
 
-import com.ista.talento_humano.model.primary.PeriodoAcademico;
-import com.ista.talento_humano.model.primary.Persona;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "distributivo")
-public class Distributivo {
+public class VDistributivo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_distributivo")
