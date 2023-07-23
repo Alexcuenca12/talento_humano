@@ -63,7 +63,6 @@ public class VPersonas implements Serializable{
 
 	@Column(name = "idioma_secundario")
 	private String idioma_secundario;
-	
 
 	////////////////////////////////////////////
 
@@ -96,15 +95,15 @@ public class VPersonas implements Serializable{
 	@Column(name = "celular")
 	private String celular;
 
+	@Column(name = "telefono")
+	private String telefono;
+
 	@Column(name = "correo")
 	private String correo;
 
 	@Column(name = "correo_institucional")
 	private String correo_institucional;
 
-	@Column(name = "telefono")
-	private String telefono;
-	
 	@Column(name = "foto")
 	private String foto;
 
