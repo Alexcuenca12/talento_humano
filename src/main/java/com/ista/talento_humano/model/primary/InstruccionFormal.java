@@ -45,8 +45,8 @@ public class InstruccionFormal implements Serializable {
     @Column(name = "area_estudios")
     private String areaEstudios;
 
-    @Column(name = "titulo")
-    private Byte[] titulo;
+    @Column(name = "titulo",columnDefinition = "LONGTEXT")
+    private String titulo;
 
 	//Relation
 	@ManyToOne
