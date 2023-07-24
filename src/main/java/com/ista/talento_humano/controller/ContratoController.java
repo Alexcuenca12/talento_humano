@@ -30,6 +30,7 @@ public class ContratoController {
     @PostMapping("/create")
     public ResponseEntity<Contrato> crear(@RequestBody Contrato obj) {
         try {
+
             return new ResponseEntity<>(ContratoService.save(obj), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

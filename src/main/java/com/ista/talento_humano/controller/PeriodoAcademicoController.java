@@ -46,7 +46,7 @@ public class PeriodoAcademicoController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<PeriodoAcademico> actualizarUsuario(@PathVariable Long id, @RequestBody PeriodoAcademico obj) {
+    public ResponseEntity<PeriodoAcademico> actualizarPeriodo(@PathVariable Long id, @RequestBody PeriodoAcademico obj) {
         PeriodoAcademico fndObj = PeriodoAcademicoService.findById(id);
         if (fndObj == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -55,6 +55,9 @@ public class PeriodoAcademicoController {
                 fndObj.setNombre(obj.getNombre());
                 fndObj.setFecha_inicio(obj.getFecha_inicio());
                 fndObj.setFecha_fin(obj.getFecha_fin());
+                fndObj.setDescripcion(obj.getDescripcion());
+                fndObj.setHorario_diario(obj.getHorario_diario());
+                fndObj.setEvidencia(obj.getEvidencia());
                 return new ResponseEntity<>(PeriodoAcademicoService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

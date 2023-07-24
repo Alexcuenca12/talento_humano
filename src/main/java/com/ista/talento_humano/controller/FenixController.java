@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/fenix")
 public class FenixController {
 
-    @Autowired
+ /*   @Autowired
     VPersonasRepository vPersonasRepository;
 
     // metodo para listar todas las personas
@@ -25,6 +25,6 @@ public class FenixController {
     @GetMapping(path = { "/cedula/{cedula}" })
     public List<VPersonas> findByCedula(@PathVariable("cedula") String cedula) {
         return vPersonasRepository.findByCedula(cedula);
-    }
+    }*/
 
 }
