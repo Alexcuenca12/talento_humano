@@ -53,9 +53,9 @@ public class Capacitaciones implements Serializable{
 	
 	@Column(name = "cantidad_horas")
 	private Integer cantidad_horas;
-	
-	@Column(name = "evidencia")
-	private byte[] evidencia;
+
+	@Column(name = "evidencia", columnDefinition = "LONGTEXT")
+	private String evidencia;
 	
 	//Relation
 	@ManyToOne

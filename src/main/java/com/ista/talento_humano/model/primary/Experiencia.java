@@ -48,8 +48,8 @@ public class Experiencia implements Serializable{
 	@Column(name = "estado")
 	private String estado;
 	
-	@Column(name = "certificado_trabajo")
-	private byte[] certificado_trabajo;
+	@Column(name = "certificado_trabajo", columnDefinition = "LONGTEXT")
+	private String certificado_trabajo;
 
 	//Relation
 	@ManyToOne
