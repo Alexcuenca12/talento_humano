@@ -104,9 +104,6 @@ public class VPersonas implements Serializable{
 	@Column(name = "correo_institucional")
 	private String correo_institucional;
 
-	@Column(name = "foto")
-	private String foto;
-
 	///////////////////////////////////////////////
 
 	@Column(name = "discapacidad")
@@ -120,8 +117,5 @@ public class VPersonas implements Serializable{
 	
 	@Column(name = "carnet_conadis")
 	private String carnet_conadis;
-	
-	@Column(name = "foto_carnet")
-	private String foto_carnet;
 	
 }

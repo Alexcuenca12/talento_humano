@@ -111,9 +111,6 @@ public class Persona implements Serializable{
 	@Column(name = "correo_institucional")
 	private String correo_institucional;
 
-	@Column(name = "foto")
-	private String foto;
-
 	///////////////////////////////////////////////
 
 	@Column(name = "discapacidad")
@@ -128,10 +125,21 @@ public class Persona implements Serializable{
 	@Column(name = "carnet_conadis")
 	private String carnet_conadis;
 
+	////////////////////////////////////////////////
+
 	@Column(name = "foto_carnet")
 	private String foto_carnet;
 
-	/*Revizar campos Fenix*/
+	@Column(name = "foto")
+	private String foto;
+
+	@Column(name = "cv_socioempleo")
+	private String cv_socioempleo;
+
+	@Column(name = "descripcion_perfil")
+	private String descripcion_perfil;
+
+	////////////////////////////////////////////////
 
 	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -144,10 +152,6 @@ public class Persona implements Serializable{
 	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Horario horario;
-
-	/*@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private VDistributivo distributivo;*/
 
 	@OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -177,9 +181,13 @@ public class Persona implements Serializable{
 	@JsonIgnore
 	private List<EvaluacionDocente> evaluacionDocentes;
 
-	@JsonIgnore
 	@OneToOne(mappedBy = "persona")
+	@JsonIgnore
 	private FichaPersonal fichaPersonal;
+
+	/*@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private VDistributivo distributivo;*/
 
 }
 
