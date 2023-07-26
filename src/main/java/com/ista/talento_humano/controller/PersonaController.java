@@ -51,10 +51,12 @@ public class PersonaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setCi_pasaporte(obj.getCi_pasaporte());
-                fndObj.setApellidos(obj.getApellidos());
-                fndObj.setNombres(obj.getNombres());
-                fndObj.setPais_nacimiento(obj.getPais_nacimiento());
+                fndObj.setCedula(obj.getCedula());
+                fndObj.setApellido_paterno(obj.getApellido_paterno());
+                fndObj.setApellido_materno(obj.getApellido_materno());
+                fndObj.setPriemer_nombre(obj.getPriemer_nombre());
+                fndObj.setSegundo_nombre(obj.getSegundo_nombre());
+                fndObj.setPais_natal(obj.getPais_natal());
                 fndObj.setEdad(obj.getEdad());
                 fndObj.setGenero(obj.getGenero());
                 fndObj.setSexo(obj.getSexo());
@@ -66,8 +68,7 @@ public class PersonaController {
                 fndObj.setCorreo_institucional(obj.getCorreo_institucional());
                 fndObj.setPais_residencia(obj.getPais_residencia());
                 fndObj.setParroquia_recidencial(obj.getParroquia_recidencial());
-                fndObj.setCalle_principal(obj.getCalle_principal());
-                fndObj.setCalle_secundaria(obj.getCalle_secundaria());
+                fndObj.setCalles(obj.getCalles());
                 fndObj.setNumero_casa(obj.getNumero_casa());
                 fndObj.setSector(obj.getSector());
                 fndObj.setReferencia(obj.getReferencia());
@@ -75,7 +76,7 @@ public class PersonaController {
                 fndObj.setIdioma_raiz(obj.getIdioma_raiz());
                 fndObj.setIdioma_secundario(obj.getIdioma_secundario());
                 fndObj.setFoto(obj.getFoto());
-                fndObj.setDiscapasidad(obj.getDiscapasidad());
+                fndObj.setDiscapacidad(obj.getDiscapacidad());
                 fndObj.setTipo_discapacidad(obj.getTipo_discapacidad());
                 fndObj.setPorcentaje_discapacidad(obj.getPorcentaje_discapacidad());
                 fndObj.setCarnet_conadis(obj.getCarnet_conadis());

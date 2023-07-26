@@ -44,7 +44,7 @@ public class Contrato implements Serializable{
 	@Column(name = "salario")
 	private Double salario;
 	
-	@Column(name = "evidencia",columnDefinition = "LONGTEXT")
+	@Column(name = "evidencia")
 	private String evidencia;
 	
 	//Relation

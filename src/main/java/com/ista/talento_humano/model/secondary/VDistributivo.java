@@ -2,6 +2,8 @@ package com.ista.talento_humano.model.secondary;
 
 import javax.persistence.*;
 
+import com.ista.talento_humano.model.primary.PeriodoAcademico;
+import com.ista.talento_humano.model.primary.Persona;
 import lombok.Getter;
 import lombok.Setter;
 
