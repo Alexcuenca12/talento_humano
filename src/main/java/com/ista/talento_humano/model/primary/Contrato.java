@@ -46,6 +46,15 @@ public class Contrato implements Serializable{
 	
 	@Column(name = "evidencia")
 	private String evidencia;
+
+	@Column(name = "tiempo_dedicacion")
+	private String tiempo_dedicacion;
+
+	@Column(name = "salario_publico")
+	private String salario_publico;
+
+	@Column(name = "contrato_vigente")
+	private Boolean contrato_vigente;
 	
 	//Relation
 	@OneToOne

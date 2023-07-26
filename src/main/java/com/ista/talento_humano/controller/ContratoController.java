@@ -60,6 +60,9 @@ public class ContratoController {
                 fndObj.setCargo(obj.getCargo());
                 fndObj.setSalario(obj.getSalario());
                 fndObj.setEvidencia(obj.getEvidencia());
+                fndObj.setTiempo_dedicacion(obj.getTiempo_dedicacion());
+                fndObj.setContrato_vigente(obj.getContrato_vigente());
+                fndObj.setSalario_publico(obj.getSalario_publico());
                 return new ResponseEntity<>(ContratoService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
