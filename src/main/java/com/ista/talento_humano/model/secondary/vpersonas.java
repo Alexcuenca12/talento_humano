@@ -1,24 +1,17 @@
 package com.ista.talento_humano.model.secondary;
 
-import java.io.Serializable;
-
 import javax.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
-@Table(name = "persona")
-public class VPersonas implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "vpersonas")
+public class vpersonas {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_persona")
-	private Integer id_persona;
-	
 	@Column(name = "cedula")
 	private String cedula;
 	
@@ -28,8 +21,8 @@ public class VPersonas implements Serializable{
 	@Column(name = "apellido_materno")
 	private String apellido_materno;
 	
-	@Column(name = "priemer_nombre")
-	private String priemer_nombre;
+	@Column(name = "primer_nombre")
+	private String primer_nombre;
 
 	@Column(name = "segundo_nombre")
 	private String segundo_nombre;
@@ -39,9 +32,6 @@ public class VPersonas implements Serializable{
 	
 	@Column(name = "pais_natal")
 	private String pais_natal;
-	
-	@Column(name = "edad")
-	private Integer edad;
 	
 	@Column(name = "genero")
 	private String genero;
@@ -65,18 +55,6 @@ public class VPersonas implements Serializable{
 	private String idioma_secundario;
 
 	////////////////////////////////////////////
-
-	@Column(name = "pais_residencia")
-	private String pais_residencia;
-
-	@Column(name = "provincia_residencia")
-	private String provincia_residencia;
-
-	@Column(name = "canton_residencia")
-	private String canton_residencia;
-
-	@Column(name = "parroquia_recidencial")
-	private String parroquia_recidencial;
 	
 	@Column(name = "calles")
 	private String calles;
