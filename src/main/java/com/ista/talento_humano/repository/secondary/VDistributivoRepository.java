@@ -1,11 +1,11 @@
 package com.ista.talento_humano.repository.secondary;
 
-import com.ista.talento_humano.model.secondary.VDistributivo;
+import com.ista.talento_humano.model.secondary.vdistributivo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface VDistributivoRepository extends JpaRepository<VDistributivo, String> {
+public interface VDistributivoRepository extends JpaRepository<vdistributivo, String> {
 
-    List<VDistributivo> findAll();
+    List<vdistributivo> findAll();
 }
