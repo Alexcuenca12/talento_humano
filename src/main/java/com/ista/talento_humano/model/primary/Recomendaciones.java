@@ -38,8 +38,8 @@ public class Recomendaciones implements Serializable {
     @Column(name = "correo")
     private String correo;
 
-    @Column(name = "documentoRecomendacion")
-    private Byte[] documentoRecomendacion;
+    @Column(name = "documentoRecomendacion",columnDefinition = "LONGTEXT")
+    private String documentoRecomendacion;
 
     /* Agregar Relacion Con Persona*/
     //Relation

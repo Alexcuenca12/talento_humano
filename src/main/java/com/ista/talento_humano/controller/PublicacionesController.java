@@ -1,0 +1,69 @@
+package com.ista.talento_humano.controller;
+
+import com.ista.talento_humano.model.primary.Publicaciones;
+import com.ista.talento_humano.services.primary.PublicacionesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@CrossOrigin(origins = { "*" })
+@RestController
+@RequestMapping("/api/publicaciones")
+public class PublicacionesController {
+
+    @Autowired
+    PublicacionesService publicacionesService;
+
+    @PostMapping("/create")
+    public ResponseEntity<Publicaciones> crear(@RequestBody Publicaciones obj) {
+        try {
+            return new ResponseEntity<>(publicacionesService.save(obj), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<List<Publicaciones>> obtenerLista() {
+        try {
+            return new ResponseEntity<>(publicacionesService.findByAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Publicaciones> actualizarPublicacion(@PathVariable Long id, @RequestBody Publicaciones obj) {
+        Publicaciones fndObj = publicacionesService.findById(id);
+        if (fndObj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                fndObj.setFecha_publi(obj.getFecha_publi());
+                fndObj.setPublicacion(obj.getPublicacion());
+                fndObj.setTitulo_publi(obj.getTitulo_publi());
+                fndObj.setPersona(obj.getPersona());
+                return new ResponseEntity<>(publicacionesService.save(fndObj), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+
+        try {
+            publicacionesService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+}

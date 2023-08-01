@@ -75,4 +75,8 @@ public class FichaPersonal {
     @JoinColumn(name="recomendaciones")
     private Recomendaciones recomendaciones;
 
+    @ManyToOne
+    @JoinColumn(name="publicaciones")
+    private Publicaciones publicaciones;
+
 }

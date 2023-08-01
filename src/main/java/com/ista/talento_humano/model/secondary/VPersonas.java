@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "persona")
-public class VPersonasF implements Serializable{
+public class VPersonas implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -19,8 +19,8 @@ public class VPersonasF implements Serializable{
 	@Column(name = "id_persona")
 	private Integer id_persona;
 	
-	@Column(name = "ci_pasaporte")
-	private Integer ci_pasaporte;
+	@Column(name = "ciPasaporte")
+	private String ciPasaporte;
 	
 	@Column(name = "apellidos")
 	private String apellidos;

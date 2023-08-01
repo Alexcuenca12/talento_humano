@@ -55,9 +55,6 @@ public class PeriodoAcademicoController {
                 fndObj.setNombre(obj.getNombre());
                 fndObj.setFecha_inicio(obj.getFecha_inicio());
                 fndObj.setFecha_fin(obj.getFecha_fin());
-                fndObj.setDescripcion(obj.getDescripcion());
-                fndObj.setHorario_diario(obj.getHorario_diario());
-                fndObj.setEvidencia(obj.getEvidencia());
                 return new ResponseEntity<>(PeriodoAcademicoService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
