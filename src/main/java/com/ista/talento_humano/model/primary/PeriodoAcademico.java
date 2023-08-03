@@ -38,7 +38,7 @@ public class PeriodoAcademico {
 	@Column(name = "horario_diario")
 	private String horario_diario;
 
-	@Column(name = "evidencia")
+	@Column(name = "evidencia", columnDefinition = "TEXT")
 	private String evidencia;
 
 	/*@OneToOne(mappedBy = "periodo",cascade = CascadeType.ALL)

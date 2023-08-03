@@ -24,7 +24,7 @@ public class EvaluacionDocente implements Serializable {
     @Column(name = "cod_carrera")
     private String codCarrera;
     
-    @Column(name = "evidencia_evaluacion")
+    @Column(name = "evidencia_evaluacion", columnDefinition = "TEXT")
     private Byte[] EvidenciaEva;
 
     @ManyToOne
