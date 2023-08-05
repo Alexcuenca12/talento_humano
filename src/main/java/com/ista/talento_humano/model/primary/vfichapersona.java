@@ -13,9 +13,8 @@ import java.util.Date;
 public class vfichapersona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_persona")
-    private Long id_persona;
-
+    @Column(name = "idPersona")
+    private Long idPersona;
     private String persona_correo;
     private String persona_nombres;
     private String persona_apellidos;
@@ -31,7 +30,7 @@ public class vfichapersona {
     private String capa_institucion;
     private String capa_nombre_evento;
     private int capa_num_dias;
-    private String capa_tipo_cer;
+    private String capa_tipo_certificado;
     private String capa_tipo_evento;
     private String carga_apellido;
     private String carga_cedula;

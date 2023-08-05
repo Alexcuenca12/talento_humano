@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VFichaPersonaServiceImpl extends GenericServiceImpl<vfichapersona, Long> implements VFichaPersonaService {
     @Autowired
@@ -13,5 +15,10 @@ public class VFichaPersonaServiceImpl extends GenericServiceImpl<vfichapersona, 
     @Override
     public CrudRepository<vfichapersona, Long> getDao() {
         return vFichaPersonaRepository;
+    }
+
+    @Override
+    public List<vfichapersona> buscarID(Long id) {
+        return vFichaPersonaRepository.findByIdPersona(id);
     }
 }

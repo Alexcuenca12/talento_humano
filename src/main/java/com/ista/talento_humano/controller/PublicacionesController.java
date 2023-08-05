@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/publicaciones")
 public class PublicacionesController {
@@ -43,9 +43,17 @@ public class PublicacionesController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setFecha_publi(obj.getFecha_publi());
-                fndObj.setPublicacion(obj.getPublicacion());
                 fndObj.setTitulo_publi(obj.getTitulo_publi());
+                fndObj.setAutores_publi(obj.getAutores_publi());
+                fndObj.setFiliacion_publi(obj.getFiliacion_publi());
+                fndObj.setLugar_publi(obj.getLugar_publi());
+                fndObj.setFecha_evento(obj.getFecha_evento());
+                fndObj.setFecha_publi(obj.getFecha_publi());
+                fndObj.setEditorial_publi(obj.getEditorial_publi());
+                fndObj.setIsbn_publi(obj.getIsbn_publi());
+                fndObj.setIssn_publi(obj.getIssn_publi());
+                fndObj.setDoi_publi(obj.getDoi_publi());
+                fndObj.setPublicacion(obj.getPublicacion());
                 fndObj.setPersona(obj.getPersona());
                 return new ResponseEntity<>(publicacionesService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
