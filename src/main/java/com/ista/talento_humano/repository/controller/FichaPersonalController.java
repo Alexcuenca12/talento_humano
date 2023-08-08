@@ -1,4 +1,4 @@
-package com.ista.talento_humano.controller;
+package com.ista.talento_humano.repository.controller;
 
 import com.ista.talento_humano.model.primary.FichaPersonal;
 import com.ista.talento_humano.services.primary.FichaPersonalService;

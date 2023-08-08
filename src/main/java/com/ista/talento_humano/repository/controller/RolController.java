@@ -1,7 +1,7 @@
-package com.ista.talento_humano.controller;
+package com.ista.talento_humano.repository.controller;
 
-import com.ista.talento_humano.model.primary.Publicaciones;
-import com.ista.talento_humano.services.primary.PublicacionesService;
+import com.ista.talento_humano.model.primary.Rol;
+import com.ista.talento_humano.services.primary.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -12,53 +12,50 @@ import java.util.List;
 
 @CrossOrigin(origins = { "*" })
 @RestController
-@RequestMapping("/api/publicaciones")
-public class PublicacionesController {
-
+@RequestMapping("/api/rol")
+public class RolController {
     @Autowired
-    PublicacionesService publicacionesService;
+    RolService RolService;
 
     @PostMapping("/create")
-    public ResponseEntity<Publicaciones> crear(@RequestBody Publicaciones obj) {
+    public ResponseEntity<Rol> crear(@RequestBody Rol obj) {
         try {
-            return new ResponseEntity<>(publicacionesService.save(obj), HttpStatus.CREATED);
+            return new ResponseEntity<>(RolService.save(obj), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/read")
-    public ResponseEntity<List<Publicaciones>> obtenerLista() {
+    public ResponseEntity<List<Rol>> obtenerLista() {
         try {
-            return new ResponseEntity<>(publicacionesService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(RolService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Publicaciones> actualizarPublicacion(@PathVariable Long id, @RequestBody Publicaciones obj) {
-        Publicaciones fndObj = publicacionesService.findById(id);
+    public ResponseEntity<Rol> actualizarCategoria(@PathVariable Long id, @RequestBody Rol obj) {
+        Rol fndObj = RolService.findById(id);
         if (fndObj == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setFecha_publi(obj.getFecha_publi());
-                fndObj.setPublicacion(obj.getPublicacion());
-                fndObj.setTitulo_publi(obj.getTitulo_publi());
-                fndObj.setPersona(obj.getPersona());
-                return new ResponseEntity<>(publicacionesService.save(fndObj), HttpStatus.CREATED);
+                fndObj.setNombreRol(obj.getNombreRol());
+                fndObj.setDescripcionRol(obj.getDescripcionRol());
+                return new ResponseEntity<>(RolService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
+
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @PutMapping("/delete/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
-
         try {
-            publicacionesService.delete(id);
+            RolService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
@@ -66,4 +63,17 @@ public class PublicacionesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<Rol> getById(@PathVariable("id") Long id) {
+        try {
+            return new ResponseEntity<>(RolService.findById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 }

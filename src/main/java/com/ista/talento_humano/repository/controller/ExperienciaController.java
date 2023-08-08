@@ -1,4 +1,4 @@
-package com.ista.talento_humano.controller;
+package com.ista.talento_humano.repository.controller;
 
 import java.util.List;
 
@@ -16,54 +16,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.Contrato;
-import com.ista.talento_humano.services.primary.ContratoService;
+import com.ista.talento_humano.model.primary.Experiencia;
+import com.ista.talento_humano.services.primary.ExperienciaService;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/contrato")
-public class ContratoController {
+@RequestMapping("/api/experiencia")
+public class ExperienciaController {
 
     @Autowired
-    ContratoService ContratoService;
+    ExperienciaService ExperienciaService;
 
     @PostMapping("/create")
-    public ResponseEntity<Contrato> crear(@RequestBody Contrato obj) {
+    public ResponseEntity<Experiencia> crear(@RequestBody Experiencia obj) {
         try {
-
-            return new ResponseEntity<>(ContratoService.save(obj), HttpStatus.CREATED);
+            return new ResponseEntity<>(ExperienciaService.save(obj), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/read")
-    public ResponseEntity<List<Contrato>> obtenerLista() {
+    public ResponseEntity<List<Experiencia>> obtenerLista() {
         try {
-            return new ResponseEntity<>(ContratoService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(ExperienciaService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Contrato> actualizarUsuario(@PathVariable Long id, @RequestBody Contrato obj) {
-        Contrato fndObj = ContratoService.findById(id);
+    public ResponseEntity<Experiencia> actualizarUsuario(@PathVariable Long id, @RequestBody Experiencia obj) {
+        Experiencia fndObj = ExperienciaService.findById(id);
         if (fndObj == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
+                fndObj.setInstitucion(obj.getInstitucion());
+                fndObj.setPuesto(obj.getPuesto());
+                fndObj.setArea_trabajo(obj.getArea_trabajo());
                 fndObj.setFecha_inicio(obj.getFecha_inicio());
                 fndObj.setFecha_fin(obj.getFecha_fin());
-                fndObj.setAnio_duracion(obj.getAnio_duracion());
-                fndObj.setHoras_diarias(obj.getHoras_diarias());
-                fndObj.setCargo(obj.getCargo());
-                fndObj.setSalario(obj.getSalario());
-                fndObj.setEvidencia(obj.getEvidencia());
-                fndObj.setTiempo_dedicacion(obj.getTiempo_dedicacion());
-                fndObj.setContrato_vigente(obj.getContrato_vigente());
-                fndObj.setSalario_publico(obj.getSalario_publico());
-                return new ResponseEntity<>(ContratoService.save(fndObj), HttpStatus.CREATED);
+                fndObj.setFecha_inicio(obj.getFecha_inicio());
+                fndObj.setActividades(obj.getActividades());
+                fndObj.setEstado(obj.getEstado());
+                fndObj.setCertificado_trabajo(obj.getCertificado_trabajo());
+                return new ResponseEntity<>(ExperienciaService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -74,7 +72,7 @@ public class ContratoController {
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
         try {
-            ContratoService.delete(id);
+            ExperienciaService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
