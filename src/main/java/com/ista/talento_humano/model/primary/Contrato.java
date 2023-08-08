@@ -57,9 +57,10 @@ public class Contrato implements Serializable{
 	private Boolean contrato_vigente;
 	
 	//Relation
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
+
 
 	@JsonIgnore
 	@OneToOne(mappedBy = "contrato")
