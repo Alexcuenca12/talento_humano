@@ -117,10 +117,6 @@ public class Persona implements Serializable {
 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
     @JsonIgnore
-    private Contrato contrato;
-
-    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
-    @JsonIgnore
     private Usuario usuario;
 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
@@ -135,6 +131,10 @@ public class Persona implements Serializable {
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Recomendaciones> recomendaciones;
+
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Contrato> contrato;
 
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     @JsonIgnore
