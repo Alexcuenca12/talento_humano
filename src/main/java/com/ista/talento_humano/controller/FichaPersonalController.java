@@ -73,7 +73,7 @@ public class FichaPersonalController {
     }
 
     @PutMapping("/stateupdate/{id}")
-    public ResponseEntity<?> actualizarEstado (@PathVariable Long id, @RequestParam String estadoRegistro) {
+    public ResponseEntity<?> actualizarEstado(@PathVariable Long id, @RequestParam String estadoRegistro) {
         FichaPersonal Registro = fichaPersonalService.findById(id);
         if (Registro == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
