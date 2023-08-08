@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 @RestController
 @RequestMapping("/api/vfichaP")
 public class VFichaPersonaController {
@@ -24,13 +24,14 @@ public class VFichaPersonaController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping("/find/{id}")
-    public ResponseEntity<vfichapersona> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<List<vfichapersona>> getById(@PathVariable("id") Long id) {
         try {
-            return new ResponseEntity<>(fichaPersonaService.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(fichaPersonaService.buscarID(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
 }

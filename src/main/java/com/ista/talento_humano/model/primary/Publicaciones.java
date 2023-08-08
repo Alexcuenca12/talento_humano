@@ -27,8 +27,32 @@ public class Publicaciones {
     @Column(name = "titulo_publi")
     private String titulo_publi;
 
+    @Column(name = "autores_publi")
+    private String autores_publi;
+
+    @Column(name = "filiacion_publi")
+    private String filiacion_publi;
+
+    @Column(name = "lugar_publi")
+    private String lugar_publi;
+
+    @Column(name = "fecha_evento")
+    private Date fecha_evento;
+
     @Column(name = "fecha_publi")
     private Date fecha_publi;
+
+    @Column(name = "editorial_publi")
+    private String editorial_publi;
+
+    @Column(name = "isbn_publi")
+    private String isbn_publi;
+
+    @Column(name = "issn_publi")
+    private String issn_publi;
+
+    @Column(name = "doi_publi")
+    private String doi_publi;
 
     @Column(name = "publicacion", columnDefinition = "LONGTEXT")
     private String publicacion;
