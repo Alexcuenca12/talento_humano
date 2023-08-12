@@ -48,7 +48,7 @@ public class Experiencia implements Serializable{
 	@Column(name = "estado")
 	private String estado;
 	
-	@Column(name = "certificado_trabajo", columnDefinition = "LONGTEXT")
+	@Column(name = "certificado_trabajo", columnDefinition = "TEXT")
 	private String certificado_trabajo;
 
 	//Relation

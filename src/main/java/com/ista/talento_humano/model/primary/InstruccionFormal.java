@@ -45,7 +45,7 @@ public class InstruccionFormal implements Serializable {
     @Column(name = "area_estudios")
     private String areaEstudios;
 
-    @Column(name = "titulo",columnDefinition = "LONGTEXT")
+    @Column(name = "titulo", columnDefinition = "TEXT")
     private String titulo;
 
 	//Relation
