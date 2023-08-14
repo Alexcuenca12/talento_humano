@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ista.talento_humano.model.secondary.Distributivo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,19 +32,6 @@ public class PeriodoAcademico {
 	
 	@Column(name = "fecha_fin")
 	private Date fecha_fin;
-
-	@Column(name = "descripcion")
-	private String descripcion;
-
-	@Column(name = "horario_diario")
-	private String horario_diario;
-
-	@Column(name = "evidencia", columnDefinition = "TEXT")
-	private String evidencia;
-
-	/*@OneToOne(mappedBy = "periodo",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private VDistributivo distributivo;*/
 
 	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
 	@JsonIgnore

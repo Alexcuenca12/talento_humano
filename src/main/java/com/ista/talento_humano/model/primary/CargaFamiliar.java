@@ -42,7 +42,7 @@ public class CargaFamiliar implements Serializable{
 	@Column(name = "edad")
 	private Integer edad;
 	
-	@Column(name = "evidencia", columnDefinition = "TEXT")
+	@Column(name = "evidencia", columnDefinition = "LONGTEXT")
 	private String evidencia;
 
 	//Relation

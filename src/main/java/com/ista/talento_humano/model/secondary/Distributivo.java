@@ -2,6 +2,9 @@ package com.ista.talento_humano.model.secondary;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ista.talento_humano.model.primary.PeriodoAcademico;
+import com.ista.talento_humano.model.primary.Persona;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "distributivo")
-public class vdistributivo {
+public class Distributivo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_distributivo")
@@ -36,12 +39,8 @@ public class vdistributivo {
 	@Column(name = "evidencia")
 	private Integer evidencia;
 
-	//Relation
-	/*@OneToOne
-	@JoinColumn(name = "id_persona")
-	private Persona persona;
 
-	@OneToOne
-	@JoinColumn(name = "id_periodoacademico")
-	private PeriodoAcademico periodo;*/
+
+
+
 }
