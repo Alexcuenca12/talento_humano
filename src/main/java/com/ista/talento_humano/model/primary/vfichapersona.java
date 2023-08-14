@@ -21,6 +21,12 @@ public class vfichapersona {
     private int persona_cedula;
     private String persona_correo_institucional;
     private String persona_genero;
+    private String persona_celular;
+    private String persona_telefono;
+    private String persona_paisnacimiento;
+    private String persona_paisresidencia;
+    private String persona_edad;
+    private String persona_estadocivil;
     private String capa_area_estudios;
     private int capa_horas;
     @Column(columnDefinition = "LONGTEXT")

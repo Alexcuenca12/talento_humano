@@ -22,3 +22,4 @@ public class VFichaPersonaServiceImpl extends GenericServiceImpl<vfichapersona, 
         return vFichaPersonaRepository.findByIdPersona(id);
     }
 }
+
