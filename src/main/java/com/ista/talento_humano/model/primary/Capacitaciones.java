@@ -62,9 +62,6 @@ public class Capacitaciones implements Serializable{
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "capacitaciones")
-	private List<FichaPersonal> fichaPersonal;
 
 	
 }

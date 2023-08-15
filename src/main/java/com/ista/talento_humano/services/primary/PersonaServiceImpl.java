@@ -37,6 +37,12 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Long> implem
     @Autowired
     ContratoRepository contratoRepository;
 
+    @Autowired
+    InstruccionFormalRepository instruccionFormalRepository;
+
+    @Autowired
+    ExperienciaRepository experienciaRepository;
+
 
 
     @Override
@@ -83,5 +89,15 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Long> implem
     @Override
     public List<Recomendaciones> listarRecomendacionesPorPersona(Long idPersona) {
         return recomedacionesRepository.listarRecomendacionesPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Experiencia> listarExperienciaPorPersona(Long idPersona) {
+        return experienciaRepository.listarExperienciaPorPersona(idPersona);
+    }
+
+    @Override
+    public List<InstruccionFormal> listarInstruccionFormalPorPersona(Long idPersona) {
+        return instruccionFormalRepository.listarInstruccionFormalPorPersona(idPersona);
     }
 }

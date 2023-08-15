@@ -31,9 +31,7 @@ public class Habilidades implements Serializable {
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "habilidades")
-    private List<FichaPersonal> fichaPersonal;
+
     
     
 }

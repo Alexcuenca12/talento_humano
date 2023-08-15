@@ -29,7 +29,6 @@ public class Rol implements Serializable {
     @Column(name = "descripcionRol")
     private String descripcionRol;
 
-    /*Agregar relacion con Usuario*/
     @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario;

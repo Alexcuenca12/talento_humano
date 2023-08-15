@@ -17,6 +17,9 @@ public class MiServicio {
     private final HorarioService horarioService;
     private final PublicacionesService publicacionesService;
     private final RecomendacionesService recomendacionesService;
+    private final InstruccionFormalService instruccionFormalService;
+    private final ExperienciaService experienciaService;
+
 
     @Autowired
     public MiServicio(
@@ -28,7 +31,9 @@ public class MiServicio {
             HabilidadesService habilidadesService,
             HorarioService horarioService,
             PublicacionesService publicacionesService,
-            RecomendacionesService recomendacionesService) {
+            RecomendacionesService recomendacionesService,
+            InstruccionFormalService instruccionFormalService,
+            ExperienciaService experienciaService) {
         this.personaService = personaService;
         this.capacitacionesService = capacitacionesService;
         this.cargaFamiliarService = cargaFamiliarService;
@@ -38,6 +43,9 @@ public class MiServicio {
         this.horarioService = horarioService;
         this.publicacionesService = publicacionesService;
         this.recomendacionesService = recomendacionesService;
+        this.instruccionFormalService=instruccionFormalService;
+        this.experienciaService=experienciaService;
+
     }
 
     public FichaCombinada obtenerInformacionCompleta(Long id) {
@@ -50,6 +58,8 @@ public class MiServicio {
         List<Horario> horarios = personaService.listarHorariosPorPersona(id);
         List<Publicaciones> publicaciones = personaService.listarPublicacionesPorPersona(id);
         List<Recomendaciones> recomendaciones = personaService.listarRecomendacionesPorPersona(id);
+        List<InstruccionFormal> instruccionFormals = personaService.listarInstruccionFormalPorPersona(id);
+        List<Experiencia> experiencias = personaService.listarExperienciaPorPersona(id);
 
         return new FichaCombinada(
                 persona,
@@ -60,17 +70,10 @@ public class MiServicio {
                 habilidades,
                 horarios,
                 publicaciones,
-                recomendaciones
+                recomendaciones,
+                instruccionFormals,
+                experiencias
         );
     }
 
-    public Persona guardarPersona(Persona persona) {
-        return personaService.save(persona);
-    }
-
-    public List<Persona> obtenerTodasLasPersonas() {
-        return personaService.findByAll();
-    }
-
-    // Agregar otros métodos para guardar y obtener información en los servicios correspondientes
 }

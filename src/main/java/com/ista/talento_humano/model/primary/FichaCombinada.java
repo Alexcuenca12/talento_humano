@@ -21,4 +21,7 @@ public class FichaCombinada {
     private List<Horario> horarios;
     private List<Publicaciones> publicaciones;
     private List<Recomendaciones> recomendaciones;
+    private List<InstruccionFormal> instruccionFormals;
+    private List<Experiencia> experiencias;
+
 }

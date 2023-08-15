@@ -41,14 +41,11 @@ public class Recomendaciones implements Serializable {
     @Column(name = "documentoRecomendacion",columnDefinition = "LONGTEXT")
     private String documentoRecomendacion;
 
-    /* Agregar Relacion Con Persona*/
     //Relation
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Persona persona;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "recomendaciones")
-    private List<FichaPersonal> fichaPersonal;
+
 
 }
