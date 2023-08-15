@@ -2,6 +2,8 @@ package com.ista.talento_humano.repository.controller;
 
 import java.util.List;
 
+import com.ista.talento_humano.model.primary.FichaCombinada;
+import com.ista.talento_humano.services.primary.MiServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ import com.ista.talento_humano.services.primary.PersonaService;
 public class PersonaController {
     @Autowired
     PersonaService PersonaService;
+    @Autowired
+    MiServicio miServicio;
 
     @PostMapping("/create")
     public ResponseEntity<Persona> crear(@RequestBody Persona obj) {
@@ -43,6 +47,18 @@ public class PersonaController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/combined/{id}")
+    public ResponseEntity<FichaCombinada> obtenerInformacionCompleta(@PathVariable Long id) {
+        try {
+            FichaCombinada resultado = miServicio.obtenerInformacionCompleta(id);
+            return new ResponseEntity<>(resultado, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Persona> actualizarUsuario(@PathVariable Long id, @RequestBody Persona obj) {

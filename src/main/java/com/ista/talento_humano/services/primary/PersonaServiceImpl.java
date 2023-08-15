@@ -1,21 +1,87 @@
 package com.ista.talento_humano.services.primary;
 
+import com.ista.talento_humano.model.primary.*;
+import com.ista.talento_humano.repository.primary.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.ista.talento_humano.model.primary.Persona;
-import com.ista.talento_humano.repository.primary.PersonaRepository;
+import java.util.List;
 
 @Service
-public class PersonaServiceImpl extends GenericServiceImpl<Persona, Long> implements PersonaService{
-	@Autowired
-	PersonaRepository personaRepository;
-	
-	@Override
-	public CrudRepository<Persona, Long> getDao() {
-		
-		return personaRepository;
-	}
+public class PersonaServiceImpl extends GenericServiceImpl<Persona, Long> implements PersonaService {
+    @Autowired
+    PersonaRepository personaRepository;
 
+    @Autowired
+    CapacitacionesRepository capacitacionesRepository;
+
+    @Autowired
+    CargaFamiliarRepository cargaFamiliarRepository;
+
+    @Autowired
+    PublicacionesRepository publicacionesRepository;
+
+    @Autowired
+    RecomedacionesRepository recomedacionesRepository;
+
+    @Autowired
+    HorarioRepository horarioRepository;
+
+    @Autowired
+    HabilidadesRepository habilidadesRepository;
+
+    @Autowired
+    EvaluacionDocenteRepository evaluacionDocenteRepository;
+
+    @Autowired
+    ContratoRepository contratoRepository;
+
+
+
+    @Override
+    public CrudRepository<Persona, Long> getDao() {
+
+        return personaRepository;
+    }
+
+    @Override
+    public List<Capacitaciones> listarCapacitacionesPorPersona(Long idPersona) {
+        return capacitacionesRepository.listarCapacitacionesPorPersona(idPersona);
+    }
+
+    @Override
+    public List<CargaFamiliar> listarCargaFamiliarPorPersona(Long idPersona) {
+        return cargaFamiliarRepository.listarCargaFamiliarPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Contrato> listarContratosPorPersona(Long idPersona) {
+        return contratoRepository.listarContratosPorPersona(idPersona);
+    }
+
+    @Override
+    public List<EvaluacionDocente> listarEvaluacionesPorPersona(Long idPersona) {
+        return evaluacionDocenteRepository.listarEvaluacionesPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Habilidades> listarHabilidadesPorPersona(Long idPersona) {
+        return habilidadesRepository.listarHabilidadesPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Horario> listarHorariosPorPersona(Long idPersona) {
+        return horarioRepository.listarHorariosPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Publicaciones> listarPublicacionesPorPersona(Long idPersona) {
+        return publicacionesRepository.listarPublicacionesPorPersona(idPersona);
+    }
+
+    @Override
+    public List<Recomendaciones> listarRecomendacionesPorPersona(Long idPersona) {
+        return recomedacionesRepository.listarRecomendacionesPorPersona(idPersona);
+    }
 }

@@ -29,7 +29,7 @@ public class Publicaciones {
 
     @Column(name = "autores_publi")
     private String autores_publi;
-
+//Long-Text
     @Column(name = "filiacion_publi")
     private String filiacion_publi;
 
