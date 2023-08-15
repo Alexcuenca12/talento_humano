@@ -42,8 +42,6 @@ public class Horario implements Serializable {
     @JoinColumn(name = "id_periodo")
     private PeriodoAcademico periodoAc;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "horario")
-    private FichaPersonal fichaPersonal;
+
 
 }

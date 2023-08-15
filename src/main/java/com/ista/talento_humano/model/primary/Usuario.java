@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Setter
 @Getter
@@ -25,9 +26,6 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
 
-
-
-    /* Agregar relaciones con Persona y Rol*/
     @OneToOne()
     @JoinColumn(name = "id_persona")
     private Persona persona;

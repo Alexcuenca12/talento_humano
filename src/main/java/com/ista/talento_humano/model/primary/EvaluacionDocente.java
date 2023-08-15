@@ -35,8 +35,6 @@ public class EvaluacionDocente implements Serializable {
     @JoinColumn(name = "id_persona")
     private Persona persona;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "evaluacionDocente")
-    private FichaPersonal fichaPersonal;
+
 
 }

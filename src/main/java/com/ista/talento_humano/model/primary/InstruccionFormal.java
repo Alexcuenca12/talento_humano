@@ -53,8 +53,6 @@ public class InstruccionFormal implements Serializable {
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "instruccionFormal")
-    private List<FichaPersonal> fichaPersonal;
+
     
 }

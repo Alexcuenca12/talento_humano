@@ -1,6 +1,7 @@
 package com.ista.talento_humano.services.primary;
 
 import com.ista.talento_humano.model.primary.*;
+import org.springframework.data.repository.query.Param;
 
 
 import java.util.List;
@@ -29,4 +30,9 @@ public interface PersonaService extends GenericService<Persona, Long> {
 
 
     List<Recomendaciones> listarRecomendacionesPorPersona(Long idPersona);
+
+    List<Experiencia> listarExperienciaPorPersona(Long idPersona);
+
+    List<InstruccionFormal> listarInstruccionFormalPorPersona(Long idPersona);
+
 }

@@ -50,9 +50,6 @@ public class CargaFamiliar implements Serializable{
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "cargaFamiliar")
-	private List<FichaPersonal> fichaPersonal;
 
 
 	

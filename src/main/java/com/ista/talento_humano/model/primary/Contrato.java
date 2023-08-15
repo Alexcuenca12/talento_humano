@@ -61,8 +61,4 @@ public class Contrato implements Serializable{
 	@JoinColumn(name = "id_persona")
 	private Persona persona;
 
-
-	@JsonIgnore
-	@OneToOne(mappedBy = "contrato")
-	private FichaPersonal fichaPersonal;
 }
