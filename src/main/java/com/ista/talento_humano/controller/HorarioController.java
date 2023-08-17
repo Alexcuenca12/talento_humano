@@ -1,4 +1,4 @@
-package com.ista.talento_humano.repository.controller;
+package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Horario;
 import com.ista.talento_humano.services.primary.HorarioService;

@@ -1,4 +1,4 @@
-package com.ista.talento_humano.repository.controller;
+package com.ista.talento_humano.controller;
 
 import java.util.List;
 
@@ -16,54 +16,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.Contrato;
-import com.ista.talento_humano.services.primary.ContratoService;
+import com.ista.talento_humano.model.primary.Habilidades;
+import com.ista.talento_humano.services.primary.HabilidadesService;
+import com.ista.talento_humano.services.primary.PersonaService;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/contrato")
-public class ContratoController {
+@RequestMapping("/api/habilidades")
+public class HabilidadesController {
 
     @Autowired
-    ContratoService ContratoService;
+    HabilidadesService HabilidadesService;
+    PersonaService personaService;
 
     @PostMapping("/create")
-    public ResponseEntity<Contrato> crear(@RequestBody Contrato obj) {
+    public ResponseEntity<Habilidades> crear(@RequestBody Habilidades obj) {
         try {
-
-            return new ResponseEntity<>(ContratoService.save(obj), HttpStatus.CREATED);
+            // Asignar el id de la persona al objeto de habilidades
+            //obj.setPersona(personaService.findById(obj.getPersona().getId_persona()));
+            return new ResponseEntity<>(HabilidadesService.save(obj), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/read")
-    public ResponseEntity<List<Contrato>> obtenerLista() {
+    public ResponseEntity<List<Habilidades>> obtenerLista() {
         try {
-            return new ResponseEntity<>(ContratoService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(HabilidadesService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Contrato> actualizarUsuario(@PathVariable Long id, @RequestBody Contrato obj) {
-        Contrato fndObj = ContratoService.findById(id);
+    public ResponseEntity<Habilidades> actualizarUsuario(@PathVariable Long id, @RequestBody Habilidades obj) {
+        Habilidades fndObj = HabilidadesService.findById(id);
         if (fndObj == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setFecha_inicio(obj.getFecha_inicio());
-                fndObj.setFecha_fin(obj.getFecha_fin());
-                fndObj.setAnio_duracion(obj.getAnio_duracion());
-                fndObj.setHoras_diarias(obj.getHoras_diarias());
-                fndObj.setCargo(obj.getCargo());
-                fndObj.setSalario(obj.getSalario());
-                fndObj.setEvidencia(obj.getEvidencia());
-                fndObj.setTiempo_dedicacion(obj.getTiempo_dedicacion());
-                fndObj.setContrato_vigente(obj.getContrato_vigente());
-                fndObj.setSalario_publico(obj.getSalario_publico());
-                return new ResponseEntity<>(ContratoService.save(fndObj), HttpStatus.CREATED);
+                fndObj.setDescripcion(obj.getDescripcion());
+                return new ResponseEntity<>(HabilidadesService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -74,7 +68,7 @@ public class ContratoController {
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
         try {
-            ContratoService.delete(id);
+            HabilidadesService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");

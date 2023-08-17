@@ -1,4 +1,4 @@
-package com.ista.talento_humano.repository.controller;
+package com.ista.talento_humano.controller;
 
 import java.util.List;
 
@@ -16,46 +16,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.EvaluacionDocente;
-import com.ista.talento_humano.services.primary.EvaluacionDocenteService;
+import com.ista.talento_humano.model.primary.Experiencia;
+import com.ista.talento_humano.services.primary.ExperienciaService;
 
 @CrossOrigin(origins = {"*"})
 @RestController
-@RequestMapping("/api/evaluaciondocente")
-public class EvaluacionDocenteController {
+@RequestMapping("/api/experiencia")
+public class ExperienciaController {
 
     @Autowired
-    EvaluacionDocenteService EvaluacionDocenteService;
+    ExperienciaService ExperienciaService;
 
     @PostMapping("/create")
-    public ResponseEntity<EvaluacionDocente> crear(@RequestBody EvaluacionDocente obj) {
+    public ResponseEntity<Experiencia> crear(@RequestBody Experiencia obj) {
         try {
-            return new ResponseEntity<>(EvaluacionDocenteService.save(obj), HttpStatus.CREATED);
+            return new ResponseEntity<>(ExperienciaService.save(obj), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/read")
-    public ResponseEntity<List<EvaluacionDocente>> obtenerLista() {
+    public ResponseEntity<List<Experiencia>> obtenerLista() {
         try {
-            return new ResponseEntity<>(EvaluacionDocenteService.findByAll(), HttpStatus.OK);
+            return new ResponseEntity<>(ExperienciaService.findByAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<EvaluacionDocente> actualizarUsuario(@PathVariable Long id, @RequestBody EvaluacionDocente obj) {
-        EvaluacionDocente fndObj = EvaluacionDocenteService.findById(id);
+    public ResponseEntity<Experiencia> actualizarUsuario(@PathVariable Long id, @RequestBody Experiencia obj) {
+        Experiencia fndObj = ExperienciaService.findById(id);
         if (fndObj == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setCodCarrera(obj.getCodCarrera());
-                fndObj.setEvidenciaEva(obj.getEvidenciaEva());
-
-                return new ResponseEntity<>(EvaluacionDocenteService.save(fndObj), HttpStatus.CREATED);
+                fndObj.setInstitucion(obj.getInstitucion());
+                fndObj.setPuesto(obj.getPuesto());
+                fndObj.setArea_trabajo(obj.getArea_trabajo());
+                fndObj.setFecha_inicio(obj.getFecha_inicio());
+                fndObj.setFecha_fin(obj.getFecha_fin());
+                fndObj.setFecha_inicio(obj.getFecha_inicio());
+                fndObj.setActividades(obj.getActividades());
+                fndObj.setEstado(obj.getEstado());
+                fndObj.setCertificado_trabajo(obj.getCertificado_trabajo());
+                return new ResponseEntity<>(ExperienciaService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -66,7 +72,7 @@ public class EvaluacionDocenteController {
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
         try {
-            EvaluacionDocenteService.delete(id);
+            ExperienciaService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");

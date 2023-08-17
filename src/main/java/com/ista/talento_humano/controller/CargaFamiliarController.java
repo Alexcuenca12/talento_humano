@@ -1,4 +1,4 @@
-package com.ista.talento_humano.repository.controller;
+package com.ista.talento_humano.controller;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class CargaFamiliarController {
 				fndObj.setApellido_pariente(obj.getApellido_pariente());
 				fndObj.setFecha_nacimiento(obj.getFecha_nacimiento());
 				fndObj.setEdad(obj.getEdad());
-				fndObj.setEvidencia(obj.getEvidencia());				
+				fndObj.setEvidencia(obj.getEvidencia());
 				return new ResponseEntity<>(CargaFamiliarService.save(fndObj), HttpStatus.CREATED);
 			} catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
