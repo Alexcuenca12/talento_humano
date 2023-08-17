@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -27,6 +28,9 @@ public class EvaluacionDocente implements Serializable {
 
     @Column(name = "evidencia_evaluacion", columnDefinition = "LONGTEXT")
     private String EvidenciaEva;
+    @Column(name = "registration_date")
+    @Temporal(TemporalType.DATE)
+    private Date registrationDate;
 
     @ManyToOne
     @JoinColumn(name = "id_periodo")
@@ -39,5 +43,10 @@ public class EvaluacionDocente implements Serializable {
     @JsonIgnore
     @OneToOne(mappedBy = "evaluacionDocente")
     private FichaPersonal fichaPersonal;
+
+    @PrePersist
+    private void onCreate() {
+        registrationDate = new Date();
+    }
 
 }
