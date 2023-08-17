@@ -1,5 +1,6 @@
 package com.ista.talento_humano.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,8 @@ public class EvaluacionDocenteController {
             try {
                 fndObj.setCodCarrera(obj.getCodCarrera());
                 fndObj.setEvidenciaEva(obj.getEvidenciaEva());
+                fndObj.setPeriodoAc(obj.getPeriodoAc());
+                fndObj.setRegistrationDate(new Date());
 
                 return new ResponseEntity<>(EvaluacionDocenteService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
