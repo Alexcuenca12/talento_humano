@@ -56,7 +56,7 @@ public class CapacitacionesController {
 				fndObj.setTipo_evento(obj.getTipo_evento());
 				fndObj.setNombre_evento(obj.getNombre_evento());
 				fndObj.setArea_estudios(obj.getArea_estudios());
-				fndObj.setTipo_certiicado(obj.getTipo_certiicado());
+				fndObj.setTipo_certificado(obj.getTipo_certificado());
 				fndObj.setFecha_inicio(obj.getFecha_inicio());
 				fndObj.setFecha_fin(obj.getFecha_fin());
 				fndObj.setNumero_dias(obj.getNumero_dias());

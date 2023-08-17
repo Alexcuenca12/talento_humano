@@ -39,8 +39,8 @@ public class Capacitaciones implements Serializable{
 	@Column(name = "area_estudios")
 	private String area_estudios;
 	
-	@Column(name = "tipo_certiicado")
-	private String tipo_certiicado;
+	@Column(name = "tipo_certificado")
+	private String tipo_certificado;
 	
 	@Column(name = "fecha_inicio")
 	private Date fecha_inicio;
