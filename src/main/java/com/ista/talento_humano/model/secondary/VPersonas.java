@@ -3,13 +3,20 @@ package com.ista.talento_humano.model.secondary;
 import java.io.Serializable;
 
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Immutable;
 
 @Entity
+@Immutable
 @Getter
 @Setter
 @Table(name = "persona")
+@NoArgsConstructor
+@AllArgsConstructor
 public class VPersonas implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

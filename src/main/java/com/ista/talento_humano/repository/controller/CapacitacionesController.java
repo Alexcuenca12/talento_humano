@@ -1,4 +1,4 @@
-package com.ista.talento_humano.controller;
+package com.ista.talento_humano.repository.controller;
 
 import java.util.List;
 
@@ -16,49 +16,53 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ista.talento_humano.model.primary.CargaFamiliar;
-import com.ista.talento_humano.services.primary.CargaFamiliarService;
+import com.ista.talento_humano.model.primary.Capacitaciones;
+import com.ista.talento_humano.services.primary.CapacitacionesService;
 
 @CrossOrigin(origins = { "*" })
 @RestController
-@RequestMapping("/api/CargaFamiliar")
-public class CargaFamiliarController {
+@RequestMapping("/api/capacitaciones")
+public class CapacitacionesController {
 
 	@Autowired
-	CargaFamiliarService CargaFamiliarService;
+	CapacitacionesService capacitacionesService;
 	
 	@PostMapping("/create")
-	public ResponseEntity<CargaFamiliar> crear(@RequestBody CargaFamiliar obj) {
+	public ResponseEntity<Capacitaciones> crear(@RequestBody Capacitaciones obj) {
 		try {
-			return new ResponseEntity<>(CargaFamiliarService.save(obj), HttpStatus.CREATED);
+			return new ResponseEntity<>(capacitacionesService.save(obj), HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
 	@GetMapping("/read")
-	public ResponseEntity<List<CargaFamiliar>> obtenerLista() {
+	public ResponseEntity<List<Capacitaciones>> obtenerLista() {
 		try {
-			return new ResponseEntity<>(CargaFamiliarService.findByAll(), HttpStatus.OK);
+			return new ResponseEntity<>(capacitacionesService.findByAll(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<CargaFamiliar> actualizarUsuario(@PathVariable Long id, @RequestBody CargaFamiliar obj) {
-		CargaFamiliar fndObj = CargaFamiliarService.findById(id);
+	public ResponseEntity<Capacitaciones> actualizarUsuario(@PathVariable Long id, @RequestBody Capacitaciones obj) {
+		Capacitaciones fndObj = capacitacionesService.findById(id);
 		if (fndObj == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			try {
-				fndObj.setCedula(obj.getCedula());
-				fndObj.setNombre_pariente(obj.getNombre_pariente());
-				fndObj.setApellido_pariente(obj.getApellido_pariente());
-				fndObj.setFecha_nacimiento(obj.getFecha_nacimiento());
-				fndObj.setEdad(obj.getEdad());
+				fndObj.setInstitucion(obj.getInstitucion());
+				fndObj.setTipo_evento(obj.getTipo_evento());
+				fndObj.setNombre_evento(obj.getNombre_evento());
+				fndObj.setArea_estudios(obj.getArea_estudios());
+				fndObj.setTipo_certificado(obj.getTipo_certificado());
+				fndObj.setFecha_inicio(obj.getFecha_inicio());
+				fndObj.setFecha_fin(obj.getFecha_fin());
+				fndObj.setNumero_dias(obj.getNumero_dias());
+				fndObj.setCantidad_horas(obj.getCantidad_horas());
 				fndObj.setEvidencia(obj.getEvidencia());				
-				return new ResponseEntity<>(CargaFamiliarService.save(fndObj), HttpStatus.CREATED);
+				return new ResponseEntity<>(capacitacionesService.save(fndObj), HttpStatus.CREATED);
 			} catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
@@ -69,7 +73,7 @@ public class CargaFamiliarController {
 	public ResponseEntity<?> eliminar(@PathVariable Long id) {
 
 		try {
-			CargaFamiliarService.delete(id);
+			capacitacionesService.delete(id);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al elminar este registro");
@@ -77,5 +81,4 @@ public class CargaFamiliarController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 }

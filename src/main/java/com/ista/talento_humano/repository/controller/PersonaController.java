@@ -1,4 +1,4 @@
-package com.ista.talento_humano.controller;
+package com.ista.talento_humano.repository.controller;
 
 import java.util.List;
 
