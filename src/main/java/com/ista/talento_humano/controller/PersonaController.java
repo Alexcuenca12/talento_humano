@@ -54,7 +54,7 @@ public class PersonaController {
                 fndObj.setCedula(obj.getCedula());
                 fndObj.setApellido_paterno(obj.getApellido_paterno());
                 fndObj.setApellido_materno(obj.getApellido_materno());
-                fndObj.setPriemer_nombre(obj.getPriemer_nombre());
+                fndObj.setPrimer_nombre(obj.getPrimer_nombre());
                 fndObj.setSegundo_nombre(obj.getSegundo_nombre());
                 fndObj.setPais_natal(obj.getPais_natal());
                 fndObj.setEdad(obj.getEdad());
@@ -67,7 +67,9 @@ public class PersonaController {
                 fndObj.setCorreo(obj.getCorreo());
                 fndObj.setCorreo_institucional(obj.getCorreo_institucional());
                 fndObj.setPais_residencia(obj.getPais_residencia());
-                fndObj.setParroquia_recidencial(obj.getParroquia_recidencial());
+                fndObj.setProvincia_residencia(obj.getProvincia_residencia());
+                fndObj.setCanton_residencia(obj.getCanton_residencia());
+                fndObj.setParroquia_residencia(obj.getParroquia_residencia());
                 fndObj.setCalles(obj.getCalles());
                 fndObj.setNumero_casa(obj.getNumero_casa());
                 fndObj.setSector(obj.getSector());

@@ -34,8 +34,8 @@ public class Persona implements Serializable{
 	@Column(name = "apellido_materno")
 	private String apellido_materno;
 
-	@Column(name = "priemer_nombre")
-	private String priemer_nombre;
+	@Column(name = "primer_nombre")
+	private String primer_nombre;
 
 	@Column(name = "segundo_nombre")
 	private String segundo_nombre;
@@ -81,8 +81,8 @@ public class Persona implements Serializable{
 	@Column(name = "canton_residencia")
 	private String canton_residencia;
 
-	@Column(name = "parroquia_recidencial")
-	private String parroquia_recidencial;
+	@Column(name = "parroquia_residencia")
+	private String parroquia_residencia;
 
 	@Column(name = "calles")
 	private String calles;
