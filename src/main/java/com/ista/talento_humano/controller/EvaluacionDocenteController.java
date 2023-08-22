@@ -52,8 +52,8 @@ public class EvaluacionDocenteController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setCodCarrera(obj.getCodCarrera());
-                fndObj.setEvidenciaEva(obj.getEvidenciaEva());
+                fndObj.setCod_carrera(obj.getCod_carrera());
+                fndObj.setEvidencia_evaluacion(obj.getEvidencia_evaluacion());
 
                 return new ResponseEntity<>(EvaluacionDocenteService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {

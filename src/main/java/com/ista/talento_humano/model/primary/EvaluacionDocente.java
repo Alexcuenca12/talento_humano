@@ -22,10 +22,10 @@ public class EvaluacionDocente implements Serializable {
     private Long id_evaluacion;
     
     @Column(name = "cod_carrera")
-    private String codCarrera;
+    private String cod_carrera;
     
     @Column(name = "evidencia_evaluacion", columnDefinition = "LONGTEXT")
-    private String EvidenciaEva;
+    private String evidencia_evaluacion;
 
     @ManyToOne
     @JoinColumn(name = "id_periodo")
