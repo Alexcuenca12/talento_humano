@@ -2,6 +2,8 @@ package com.ista.talento_humano.controller;
 
 import java.util.List;
 
+import com.ista.talento_humano.model.primary.FichaCombinada;
+import com.ista.talento_humano.services.primary.MiServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ import com.ista.talento_humano.services.primary.PersonaService;
 public class PersonaController {
     @Autowired
     PersonaService PersonaService;
+    @Autowired
+    MiServicio miServicio;
 
     @PostMapping("/create")
     public ResponseEntity<Persona> crear(@RequestBody Persona obj) {
@@ -44,6 +48,18 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/combined/{id}")
+    public ResponseEntity<FichaCombinada> obtenerInformacionCompleta(@PathVariable Long id) {
+        try {
+            FichaCombinada resultado = miServicio.obtenerInformacionCompleta(id);
+            return new ResponseEntity<>(resultado, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
     @PutMapping("/update/{id}")
     public ResponseEntity<Persona> actualizarUsuario(@PathVariable Long id, @RequestBody Persona obj) {
         Persona fndObj = PersonaService.findById(id);
@@ -51,12 +67,10 @@ public class PersonaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndObj.setCedula(obj.getCedula());
-                fndObj.setApellido_paterno(obj.getApellido_paterno());
-                fndObj.setApellido_materno(obj.getApellido_materno());
-                fndObj.setPrimer_nombre(obj.getPrimer_nombre());
-                fndObj.setSegundo_nombre(obj.getSegundo_nombre());
-                fndObj.setPais_natal(obj.getPais_natal());
+                fndObj.setCi_pasaporte(obj.getCi_pasaporte());
+                fndObj.setApellidos(obj.getApellidos());
+                fndObj.setNombres(obj.getNombres());
+                fndObj.setPais_nacimiento(obj.getPais_nacimiento());
                 fndObj.setEdad(obj.getEdad());
                 fndObj.setGenero(obj.getGenero());
                 fndObj.setSexo(obj.getSexo());
@@ -67,10 +81,9 @@ public class PersonaController {
                 fndObj.setCorreo(obj.getCorreo());
                 fndObj.setCorreo_institucional(obj.getCorreo_institucional());
                 fndObj.setPais_residencia(obj.getPais_residencia());
-                fndObj.setProvincia_residencia(obj.getProvincia_residencia());
-                fndObj.setCanton_residencia(obj.getCanton_residencia());
-                fndObj.setParroquia_residencia(obj.getParroquia_residencia());
-                fndObj.setCalles(obj.getCalles());
+                fndObj.setParroquia_recidencial(obj.getParroquia_recidencial());
+                fndObj.setCalle_principal(obj.getCalle_principal());
+                fndObj.setCalle_secundaria(obj.getCalle_secundaria());
                 fndObj.setNumero_casa(obj.getNumero_casa());
                 fndObj.setSector(obj.getSector());
                 fndObj.setReferencia(obj.getReferencia());
@@ -78,7 +91,7 @@ public class PersonaController {
                 fndObj.setIdioma_raiz(obj.getIdioma_raiz());
                 fndObj.setIdioma_secundario(obj.getIdioma_secundario());
                 fndObj.setFoto(obj.getFoto());
-                fndObj.setDiscapacidad(obj.getDiscapacidad());
+                fndObj.setDiscapasidad(obj.getDiscapasidad());
                 fndObj.setTipo_discapacidad(obj.getTipo_discapacidad());
                 fndObj.setPorcentaje_discapacidad(obj.getPorcentaje_discapacidad());
                 fndObj.setCarnet_conadis(obj.getCarnet_conadis());
