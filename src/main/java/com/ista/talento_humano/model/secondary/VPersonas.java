@@ -78,7 +78,7 @@ public class VPersonas implements Serializable{
 	private String calle_secundaria;
 	
 	@Column(name = "numero_casa")
-	private Integer numero_casa;
+	private String numero_casa;
 	
 	@Column(name = "sector")
 	private String sector;
