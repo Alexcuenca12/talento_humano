@@ -100,4 +100,9 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Long> implem
     public List<InstruccionFormal> listarInstruccionFormalPorPersona(Long idPersona) {
         return instruccionFormalRepository.listarInstruccionFormalPorPersona(idPersona);
     }
+
+    @Override
+    public Persona findByCedula(String cedula) {
+        return personaRepository.findByCedula(cedula);
+    }
 }

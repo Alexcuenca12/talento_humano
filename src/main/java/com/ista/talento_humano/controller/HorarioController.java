@@ -44,9 +44,11 @@ public class HorarioController {
         } else {
             try {
 
-                fndObj.setPeriodo(obj.getPeriodo());
-                fndObj.setHorario(obj.getHorario());
-                fndObj.setDias(obj.getDias());
+                fndObj.setCarreraHorario(obj.getCarreraHorario());
+                fndObj.setJornadaHorario(obj.getJornadaHorario());
+                fndObj.setHorasSemanalesHorario(obj.getHorasSemanalesHorario());
+                fndObj.setPersona(obj.getPersona());
+                fndObj.setPeriodoAcademico(obj.getPeriodoAcademico());
                 fndObj.setDistributivo(obj.getDistributivo());
                 return new ResponseEntity<>(HorarioService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {

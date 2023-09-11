@@ -59,6 +59,24 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/combi/{cedula}")
+    public ResponseEntity<FichaCombinada> obtenerInformacionSecretaria(@PathVariable String cedula) {
+        Persona fndObj = PersonaService.findByCedula(cedula);
+        if (fndObj == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                FichaCombinada resultado = miServicio.obtenerInformacionCompleta(fndObj.getId_persona());
+                return new ResponseEntity<>(resultado, HttpStatus.OK);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+
+        }
+
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Persona> actualizarUsuario(@PathVariable Long id, @RequestBody Persona obj) {

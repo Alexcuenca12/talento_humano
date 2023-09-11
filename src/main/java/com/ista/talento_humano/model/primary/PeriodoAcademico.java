@@ -45,15 +45,4 @@ public class PeriodoAcademico {
 
 
 
-
-	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<Horario> horarios;
-
-	@OneToMany(mappedBy = "periodoAc",cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<EvaluacionDocente> evaluaciones;
-
-
-
 }

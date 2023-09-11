@@ -27,9 +27,9 @@ public class EvaluacionDocente implements Serializable {
     @Column(name = "evidencia_evaluacion", columnDefinition = "LONGTEXT")
     private String evidencia_evaluacion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_periodo")
-    private PeriodoAcademico periodoAc;
+    @Column(name = "per_nombre")
+    private String per_nombre;
+
 
     @ManyToOne
     @JoinColumn(name = "id_persona")

@@ -23,13 +23,15 @@ public class Horario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_horario;
 
-    private String periodo;
+    private String periodoAcademico;
 
-    private String horario;
+    private String jornadaHorario;
 
-    private String dias;
+    private String horasSemanalesHorario;
 
-    @Column(length = 10485760)
+    private String carreraHorario;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String distributivo;
 
 
@@ -38,9 +40,6 @@ public class Horario implements Serializable {
     @JoinColumn(name = "id_persona")
     private Persona persona;
 
-    @ManyToOne
-    @JoinColumn(name = "id_periodo")
-    private PeriodoAcademico periodoAc;
 
 
 

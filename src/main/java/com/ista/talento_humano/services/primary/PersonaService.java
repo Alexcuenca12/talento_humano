@@ -35,4 +35,6 @@ public interface PersonaService extends GenericService<Persona, Long> {
 
     List<InstruccionFormal> listarInstruccionFormalPorPersona(Long idPersona);
 
+    public Persona findByCedula(String cedula);
+
 }
