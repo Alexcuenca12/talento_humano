@@ -2,6 +2,7 @@ package com.ista.talento_humano.controller;
 
 import java.util.List;
 
+import com.ista.talento_humano.model.primary.Capacitaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -44,7 +45,24 @@ public class CargaFamiliarController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+	@GetMapping("/readCarga/{id}")
+	public ResponseEntity<List<CargaFamiliar>> obtenerCargaFamiliar(@PathVariable Long id) {
+		try {
+			return new ResponseEntity<>(CargaFamiliarService.listarCargaFamiliarPorCarga(id), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/readCargaPersona/{id}")
+	public ResponseEntity<List<CargaFamiliar>> obtenerCargaFamiliarPersona(@PathVariable Long id) {
+		try {
+			return new ResponseEntity<>(CargaFamiliarService.listarCargaFamiliarPorPersona(id), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	@PutMapping("/update/{id}")
 	public ResponseEntity<CargaFamiliar> actualizarUsuario(@PathVariable Long id, @RequestBody CargaFamiliar obj) {
 		CargaFamiliar fndObj = CargaFamiliarService.findById(id);

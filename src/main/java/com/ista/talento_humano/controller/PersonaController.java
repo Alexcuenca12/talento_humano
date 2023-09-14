@@ -3,6 +3,7 @@ package com.ista.talento_humano.controller;
 import java.util.List;
 
 import com.ista.talento_humano.model.primary.FichaCombinada;
+import com.ista.talento_humano.model.primary.Horario;
 import com.ista.talento_humano.services.primary.ServiceImpl.MiServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -76,6 +77,16 @@ public class PersonaController {
         }
 
     }
+
+    @GetMapping("/readPersona/{id}")
+    public ResponseEntity<List<Persona>> obtenerPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(PersonaService.listarPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
 
     @PutMapping("/update/{id}")

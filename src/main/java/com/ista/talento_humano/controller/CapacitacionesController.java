@@ -2,6 +2,7 @@ package com.ista.talento_humano.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,24 @@ public class CapacitacionesController {
 	public ResponseEntity<List<Capacitaciones>> obtenerLista() {
 		try {
 			return new ResponseEntity<>(capacitacionesService.findByAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/readCapacitaciones/{id}")
+	public ResponseEntity<List<Capacitaciones>> obtenerCapacitaciones(@PathVariable Long id) {
+		try {
+			return new ResponseEntity<>(capacitacionesService.listarCapacitacionesPorCapacitaciones(id), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/readCapacitacionPersona/{id}")
+	public ResponseEntity<List<Capacitaciones>> obtenerCapacitacionesPersona(@PathVariable Long id) {
+		try {
+			return new ResponseEntity<>(capacitacionesService.listarCapacitacionesPorPersona(id), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

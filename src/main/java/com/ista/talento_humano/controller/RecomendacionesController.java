@@ -36,6 +36,23 @@ public class RecomendacionesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/readRecomendaciones/{id}")
+    public ResponseEntity<List<Recomendaciones>> obtenerRecomendaciones(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(recomendacionesService.listarRecomendacionesPorRecomendacion(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readRecomendacionesPersona/{id}")
+    public ResponseEntity<List<Recomendaciones>> obtenerRecomendacionesPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(recomendacionesService.listarRecomendacionesPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Recomendaciones> actualizarUsuario(@PathVariable Long id, @RequestBody Recomendaciones obj) {
@@ -57,6 +74,7 @@ public class RecomendacionesController {
             }
         }
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {

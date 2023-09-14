@@ -2,6 +2,7 @@ package com.ista.talento_humano.controller;
 
 import java.util.List;
 
+import com.ista.talento_humano.model.primary.Horario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,25 @@ public class InstruccionFormalController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/readInstruccionFormal/{id}")
+    public ResponseEntity<List<InstruccionFormal>> obtenerInstruccionFormal(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(InstruccionFormalService.listarInstruccionFormalPorIntruccion(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readInstruccionFormalPersona/{id}")
+    public ResponseEntity<List<InstruccionFormal>> obtenerInstruccionFormalPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(InstruccionFormalService.listarInstruccionFormalPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<InstruccionFormal> actualizarUsuario(@PathVariable Long id, @RequestBody InstruccionFormal obj) {

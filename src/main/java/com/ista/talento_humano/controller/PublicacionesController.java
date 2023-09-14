@@ -35,6 +35,24 @@ public class PublicacionesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/readPublicaciones/{id}")
+    public ResponseEntity<List<Publicaciones>> obtenerPublicaciones(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(publicacionesService.listarPublicacionesPorPublicacion(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readPublicacionesPersona/{id}")
+    public ResponseEntity<List<Publicaciones>> obtenerPublicacionesPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(publicacionesService.listarPublicacionesPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Publicaciones> actualizarPublicacion(@PathVariable Long id, @RequestBody Publicaciones obj) {

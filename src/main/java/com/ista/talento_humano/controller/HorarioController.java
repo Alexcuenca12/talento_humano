@@ -1,5 +1,6 @@
 package com.ista.talento_humano.controller;
 
+import com.ista.talento_humano.model.primary.Habilidades;
 import com.ista.talento_humano.model.primary.Horario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -34,6 +35,25 @@ public class HorarioController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/readHorario/{id}")
+    public ResponseEntity<List<Horario>> obtenerHorario(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(HorarioService.listarHorariosPorHorario(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readHorarioPersona/{id}")
+    public ResponseEntity<List<Horario>> obtenerHorarioPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(HorarioService.listarHorariosPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Horario> actualizarHorario(@PathVariable Long id, @RequestBody Horario obj) {

@@ -49,6 +49,25 @@ public class HabilidadesController {
         }
     }
 
+    @GetMapping("/readHabilidades/{id}")
+    public ResponseEntity<List<Habilidades>> obtenerHablidades(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(HabilidadesService.listarHabilidadesPorHabilidad(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readHabilidadesPersona/{id}")
+    public ResponseEntity<List<Habilidades>> obtenerHabilidadtesPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(HabilidadesService.listarHabilidadesPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
     @PutMapping("/update/{id}")
     public ResponseEntity<Habilidades> actualizarUsuario(@PathVariable Long id, @RequestBody Habilidades obj) {
         Habilidades fndObj = HabilidadesService.findById(id);
