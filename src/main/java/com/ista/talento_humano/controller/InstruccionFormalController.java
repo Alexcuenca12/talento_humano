@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.talento_humano.model.primary.InstruccionFormal;
-import com.ista.talento_humano.services.primary.InstruccionFormalService;
+import com.ista.talento_humano.services.primary.Service.InstruccionFormalService;
 
 @CrossOrigin(origins = {"*"})
 @RestController

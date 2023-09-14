@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.talento_humano.model.primary.CargaFamiliar;
-import com.ista.talento_humano.services.primary.CargaFamiliarService;
+import com.ista.talento_humano.services.primary.Service.CargaFamiliarService;
 
 @CrossOrigin(origins = { "*" })
 @RestController

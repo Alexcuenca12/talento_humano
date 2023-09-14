@@ -11,4 +11,7 @@ import java.util.List;
 public interface HabilidadesRepository extends JpaRepository<Habilidades, Long> {
     @Query(value = "SELECT * FROM habilidades WHERE id_persona = ?", nativeQuery = true)
     List<Habilidades> listarHabilidadesPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM habilidades WHERE id_habilidades = ?", nativeQuery = true)
+    List<Habilidades> listarHabilidadesPorHabilidad(@Param("idHabilidad") Long idHabilidad);
 }

@@ -11,4 +11,7 @@ import java.util.List;
 public interface EvaluacionDocenteRepository extends JpaRepository<EvaluacionDocente, Long>{
     @Query(value = "SELECT * FROM evaluacion WHERE id_persona = ?", nativeQuery = true)
     List<EvaluacionDocente> listarEvaluacionesPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM evaluacion WHERE id_evaluacion = ?", nativeQuery = true)
+    List<EvaluacionDocente> listarEvaluacionesPorEvaluaciones(@Param("idEva") Long idEva);
 }

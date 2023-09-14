@@ -1,7 +1,7 @@
 package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Publicaciones;
-import com.ista.talento_humano.services.primary.PublicacionesService;
+import com.ista.talento_humano.services.primary.Service.PublicacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

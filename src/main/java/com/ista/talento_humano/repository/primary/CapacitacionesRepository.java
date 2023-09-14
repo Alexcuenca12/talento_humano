@@ -12,4 +12,7 @@ public interface CapacitacionesRepository extends JpaRepository<Capacitaciones, 
     @Query(value = "SELECT * FROM capacitaciones WHERE id_persona = ?", nativeQuery = true)
     List<Capacitaciones> listarCapacitacionesPorPersona(@Param("idPersona") Long idPersona);
 
+    @Query(value = "SELECT * FROM capacitaciones WHERE id_capacitaciones = ?", nativeQuery = true)
+    List<Capacitaciones> listarCapacitacionesPorCapacitaciones(@Param("idCapacitaciones") Long idCapacitaciones);
+
 }

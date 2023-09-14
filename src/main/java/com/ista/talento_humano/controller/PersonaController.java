@@ -3,7 +3,7 @@ package com.ista.talento_humano.controller;
 import java.util.List;
 
 import com.ista.talento_humano.model.primary.FichaCombinada;
-import com.ista.talento_humano.services.primary.MiServicio;
+import com.ista.talento_humano.services.primary.ServiceImpl.MiServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.talento_humano.model.primary.Persona;
-import com.ista.talento_humano.services.primary.PersonaService;
+import com.ista.talento_humano.services.primary.Service.PersonaService;
 
 @CrossOrigin(origins = {"*"})
 @RestController

@@ -2,7 +2,7 @@ package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Usuario;
 import com.ista.talento_humano.repository.primary.UsuarioRepository;
-import com.ista.talento_humano.services.primary.UsuarioService;
+import com.ista.talento_humano.services.primary.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

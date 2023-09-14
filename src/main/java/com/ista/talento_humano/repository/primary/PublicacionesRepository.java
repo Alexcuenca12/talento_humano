@@ -10,4 +10,7 @@ import java.util.List;
 public interface PublicacionesRepository extends JpaRepository<Publicaciones, Long> {
     @Query(value = "SELECT * FROM publicaciones WHERE id_persona = ?", nativeQuery = true)
     List<Publicaciones> listarPublicacionesPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM publicaciones WHERE id_publi = ?", nativeQuery = true)
+    List<Publicaciones> listarPublicacionesPorPublicacion(@Param("idPubli") Long idPubli);
 }

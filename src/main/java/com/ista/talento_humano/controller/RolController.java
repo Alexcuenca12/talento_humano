@@ -1,7 +1,7 @@
 package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Rol;
-import com.ista.talento_humano.services.primary.RolService;
+import com.ista.talento_humano.services.primary.Service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

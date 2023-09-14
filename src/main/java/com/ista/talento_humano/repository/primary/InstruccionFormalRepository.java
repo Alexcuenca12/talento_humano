@@ -11,4 +11,7 @@ import java.util.List;
 public interface InstruccionFormalRepository extends JpaRepository<InstruccionFormal, Long>{
     @Query(value = "SELECT * FROM instruccion_formal WHERE id_persona = ?", nativeQuery = true)
     List<InstruccionFormal> listarInstruccionFormalPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM instruccion_formal WHERE id_instruccion = ?", nativeQuery = true)
+    List<InstruccionFormal> listarInstruccionFormalPorIntruccion(@Param("idInstruccion") Long idInstruccion);
 }

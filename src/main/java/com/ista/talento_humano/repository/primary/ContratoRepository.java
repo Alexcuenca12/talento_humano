@@ -10,4 +10,7 @@ import java.util.List;
 public interface ContratoRepository extends JpaRepository<Contrato, Long> {
     @Query(value = "SELECT * FROM contrato WHERE id_persona = ?", nativeQuery = true)
     List<Contrato> listarContratosPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM contrato WHERE id_contrato = ?", nativeQuery = true)
+    List<Contrato> listarContratosPorContrato(@Param("idContrato") Long idContrato);
 }

@@ -1,7 +1,7 @@
 package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Recomendaciones;
-import com.ista.talento_humano.services.primary.RecomendacionesService;
+import com.ista.talento_humano.services.primary.Service.RecomendacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.talento_humano.model.primary.Capacitaciones;
-import com.ista.talento_humano.services.primary.CapacitacionesService;
+import com.ista.talento_humano.services.primary.Service.CapacitacionesService;
 
 @CrossOrigin(origins = { "*" })
 @RestController

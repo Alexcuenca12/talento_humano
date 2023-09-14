@@ -1,7 +1,6 @@
 package com.ista.talento_humano.model.primary;
 
-import java.io.Serializable;
-import java.util.List;
+
 
 import javax.persistence.*;
 
@@ -11,6 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Setter

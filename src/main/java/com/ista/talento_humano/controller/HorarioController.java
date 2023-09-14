@@ -1,7 +1,6 @@
 package com.ista.talento_humano.controller;
 
 import com.ista.talento_humano.model.primary.Horario;
-import com.ista.talento_humano.services.primary.HorarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/horario")
 public class HorarioController {
     @Autowired
-    com.ista.talento_humano.services.primary.HorarioService HorarioService;
+    com.ista.talento_humano.services.primary.Service.HorarioService HorarioService;
 
     @PostMapping("/create")
     public ResponseEntity<Horario> crear(@RequestBody Horario obj) {

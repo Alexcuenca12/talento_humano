@@ -11,4 +11,7 @@ import java.util.List;
 public interface RecomedacionesRepository extends JpaRepository<Recomendaciones, Long>{
     @Query(value = "SELECT * FROM recomendaciones WHERE id_persona = ?", nativeQuery = true)
     List<Recomendaciones> listarRecomendacionesPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM recomendaciones WHERE id_recomendaciones = ?", nativeQuery = true)
+    List<Recomendaciones> listarRecomendacionesPorRecomendacion(@Param("idRecom") Long idRecom);
 }

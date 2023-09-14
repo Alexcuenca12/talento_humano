@@ -11,4 +11,7 @@ import java.util.List;
 public interface CargaFamiliarRepository extends JpaRepository<CargaFamiliar, Long>{
     @Query(value = "SELECT * FROM carga_familiar WHERE id_persona = ?", nativeQuery = true)
     List<CargaFamiliar> listarCargaFamiliarPorPersona(@Param("idPersona") Long idPersona);
+
+    @Query(value = "SELECT * FROM carga_familiar WHERE id_cargaFamiliar = ?", nativeQuery = true)
+    List<CargaFamiliar> listarCargaFamiliarPorCarga(@Param("idCarga") Long idCarga);
 }

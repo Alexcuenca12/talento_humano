@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.talento_humano.model.primary.Contrato;
-import com.ista.talento_humano.services.primary.ContratoService;
+import com.ista.talento_humano.services.primary.Service.ContratoService;
 
 @CrossOrigin(origins = {"*"})
 @RestController
@@ -45,6 +45,25 @@ public class ContratoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/readContrato/{id}")
+    public ResponseEntity<List<Contrato>> obtenerContrato(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(ContratoService.listarContratosPorContrato(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/readContratoPersona/{id}")
+    public ResponseEntity<List<Contrato>> obtenerContratoPersona(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(ContratoService.listarContratosPorPersona(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Contrato> actualizarUsuario(@PathVariable Long id, @RequestBody Contrato obj) {
