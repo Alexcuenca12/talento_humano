@@ -27,6 +27,6 @@ public class PublicacionesServiceImpl extends GenericServiceImpl<Publicaciones, 
 
     @Override
     public List<Publicaciones> listarPublicacionesPorPublicacion(Long idPubli) {
-        return listarPublicacionesPorPublicacion(idPubli);
+        return publicacionesRepository.listarPublicacionesPorPublicacion(idPubli);
     }
 }

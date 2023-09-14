@@ -28,6 +28,6 @@ public class RecomendacionesServiceImpl extends GenericServiceImpl<Recomendacion
 
 	@Override
 	public List<Recomendaciones> listarRecomendacionesPorRecomendacion(Long idRecom) {
-		return listarRecomendacionesPorRecomendacion(idRecom);
+		return recomedacionesRepository.listarRecomendacionesPorRecomendacion(idRecom);
 	}
 }
