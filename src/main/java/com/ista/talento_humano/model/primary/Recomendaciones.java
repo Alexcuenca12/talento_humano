@@ -38,6 +38,9 @@ public class Recomendaciones implements Serializable {
     @Column(name = "correo")
     private String correo;
 
+    @Column(name = "numeroContacto")
+    private String numeroContacto;
+
     @Column(name = "documentoRecomendacion",columnDefinition = "LONGTEXT")
     private String documentoRecomendacion;
 
@@ -45,7 +48,7 @@ public class Recomendaciones implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Persona persona;
-
+    
 
 
 }
