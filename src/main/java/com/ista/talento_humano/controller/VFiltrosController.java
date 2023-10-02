@@ -29,7 +29,7 @@ public class VFiltrosController {
     }
 
     @GetMapping("/list/{id}")
-    public ResponseEntity<VFiltros> obtenerCarrera(@PathVariable Long id) {
+    public ResponseEntity<VFiltros> obtenerInformacion(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(filtrosService.findById(id), HttpStatus.OK);
         } catch (Exception e) {
