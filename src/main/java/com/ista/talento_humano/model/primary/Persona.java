@@ -140,6 +140,9 @@ public class Persona implements Serializable {
     @Column(name = "mecanizado_iess", columnDefinition = "TEXT")
     private String mecanizado_iess;
 
+    @Column(name = "documentos_personales", columnDefinition = "TEXT")
+    private String documentos_personales;
+
     @Column(name = "descripcion_perfil")
     private String descripcion_perfil;
 

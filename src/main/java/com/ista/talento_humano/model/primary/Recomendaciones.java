@@ -41,7 +41,7 @@ public class Recomendaciones implements Serializable {
     @Column(name = "numeroContacto")
     private String numeroContacto;
 
-    @Column(name = "documentoRecomendacion",columnDefinition = "LONGTEXT")
+    @Column(name = "documentoRecomendacion",columnDefinition = "TEXT")
     private String documentoRecomendacion;
 
     //Relation

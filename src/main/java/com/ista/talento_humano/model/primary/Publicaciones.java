@@ -54,7 +54,7 @@ public class Publicaciones {
     @Column(name = "doi_publi")
     private String doi_publi;
 
-    @Column(name = "publicacion", columnDefinition = "LONGTEXT")
+    @Column(name = "publicacion", columnDefinition = "TEXT")
     private String publicacion;
 
     @ManyToOne

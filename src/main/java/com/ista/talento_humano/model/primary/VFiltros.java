@@ -2,7 +2,7 @@ package com.ista.talento_humano.model.primary;
 
 import lombok.Getter;
 import lombok.Setter;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -32,9 +32,13 @@ public class VFiltros {
     private String genero;
 
     @Column(name = "fecha_inicio")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fecha_inicio;
 
     @Column(name = "fecha_fin")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fecha_fin;
 
     @Column(name = "contrato_vigente")
@@ -45,4 +49,8 @@ public class VFiltros {
 
     @Column(name = "salario")
     private Double salario;
+
+    @Column(name = "tiempo_dedicacion")
+    private String tiempo_dedicacion;
+
 }

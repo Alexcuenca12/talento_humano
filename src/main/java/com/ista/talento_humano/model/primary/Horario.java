@@ -31,7 +31,7 @@ public class Horario implements Serializable {
 
     private String carreraHorario;
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String distributivo;
 
 

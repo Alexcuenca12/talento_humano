@@ -24,7 +24,7 @@ public class EvaluacionDocente implements Serializable {
     @Column(name = "cod_carrera")
     private String cod_carrera;
     
-    @Column(name = "evidencia_evaluacion", columnDefinition = "LONGTEXT")
+    @Column(name = "evidencia_evaluacion", columnDefinition = "TEXT")
     private String evidencia_evaluacion;
 
     @Column(name = "per_nombre")

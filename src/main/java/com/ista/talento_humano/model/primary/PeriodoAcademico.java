@@ -39,7 +39,7 @@ public class PeriodoAcademico {
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	@Column(name = "evidencia",columnDefinition = "LONGTEXT")
+	@Column(name = "evidencia",columnDefinition = "TEXT")
 	private String evidencia;
 
 

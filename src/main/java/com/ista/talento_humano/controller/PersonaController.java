@@ -127,6 +127,7 @@ public class PersonaController {
                 fndObj.setTipo_discapacidad(obj.getTipo_discapacidad());
                 fndObj.setPorcentaje_discapacidad(obj.getPorcentaje_discapacidad());
                 fndObj.setCarnet_conadis(obj.getCarnet_conadis());
+                fndObj.setDocumentos_personales(obj.getDocumentos_personales());
                 fndObj.setFoto_carnet(obj.getFoto_carnet());
                 return new ResponseEntity<>(PersonaService.save(fndObj), HttpStatus.CREATED);
             } catch (Exception e) {
