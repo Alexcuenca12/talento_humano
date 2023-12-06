@@ -8,7 +8,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -32,4 +34,8 @@ public class Rol implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "rol")
     private List<Usuario> usuario;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "rol")
+    private Set<UsuarioRol> usuarioRoles = new HashSet<>();
+
 }
