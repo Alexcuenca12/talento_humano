@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.Persona;
 import com.ista.talento_humano.services.primary.Service.PersonaService;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/persona")
+@RequestMapping("/talento/api/persona")
 public class PersonaController {
     @Autowired
     PersonaService PersonaService;

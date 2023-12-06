@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.EvaluacionDocente;
 import com.ista.talento_humano.services.primary.Service.EvaluacionDocenteService;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/evaluaciondocente")
+@RequestMapping("/talento/api/evaluaciondocente")
 public class EvaluacionDocenteController {
 
     @Autowired

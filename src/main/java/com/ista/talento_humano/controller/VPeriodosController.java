@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/vPerido")
+@RequestMapping("/talento/api/vPerido")
 public class VPeriodosController {
 
     @Autowired

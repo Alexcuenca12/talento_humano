@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/horario")
+@RequestMapping("/talento/api/horario")
 public class HorarioController {
     @Autowired
     com.ista.talento_humano.services.primary.Service.HorarioService HorarioService;

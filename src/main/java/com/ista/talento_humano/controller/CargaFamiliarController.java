@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.CargaFamiliar;
 import com.ista.talento_humano.services.primary.Service.CargaFamiliarService;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/CargaFamiliar")
+@RequestMapping("/talento/api/CargaFamiliar")
 public class CargaFamiliarController {
 
 	@Autowired

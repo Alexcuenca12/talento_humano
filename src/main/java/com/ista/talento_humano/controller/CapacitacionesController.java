@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.Capacitaciones;
 import com.ista.talento_humano.services.primary.Service.CapacitacionesService;
 
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/capacitaciones")
+@RequestMapping("/talento/api/capacitaciones")
 public class CapacitacionesController {
 
 	@Autowired

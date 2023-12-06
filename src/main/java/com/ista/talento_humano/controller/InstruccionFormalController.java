@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.talento_humano.model.primary.InstruccionFormal;
 import com.ista.talento_humano.services.primary.Service.InstruccionFormalService;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/InstruccionFormal")
+@RequestMapping("/talento/api/InstruccionFormal")
 public class InstruccionFormalController {
 
     @Autowired
