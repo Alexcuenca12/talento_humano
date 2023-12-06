@@ -20,9 +20,9 @@ import com.ista.talento_humano.model.primary.Habilidades;
 import com.ista.talento_humano.services.primary.HabilidadesService;
 import com.ista.talento_humano.services.primary.PersonaService;
 
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "https://apps.tecazuay.edu.ec" })
 @RestController
-@RequestMapping("/api/habilidades")
+@RequestMapping("talento/api/habilidades")
 public class HabilidadesController {
 
     @Autowired

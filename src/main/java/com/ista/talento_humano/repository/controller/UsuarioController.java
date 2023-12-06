@@ -80,6 +80,22 @@ public class UsuarioController {
         return UsuarioService.findById(id);
     }
 
+    @PutMapping("/restablecer/{id}")
+    public ResponseEntity<Usuario> restablecerContra(@PathVariable Long id, @RequestParam String password) {
+        Usuario usuario = UsuarioService.findById(id);
+        if (usuario == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            try {
+                usuario.setPassword(password);
+                return new ResponseEntity<>(UsuarioService.save(usuario), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
+
+
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario create(@RequestBody Usuario usuario) throws Exception {
@@ -90,11 +106,6 @@ public class UsuarioController {
             throw new Exception("Error: Usuario ya esta en la BD!");
         }
     }
-
-
-
-
-
 
 
 
